@@ -61,25 +61,26 @@
 
       .ctc-item {
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
 
         width: 26px;
         height: 26px;
 
         margin: 0 5px 0 5px;
-        padding: 5px;
         border-radius: 100%;
         border: 1px solid $lightChoco;
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+        outline: none;
+        text-decoration: none;
 
-        img {
-          color: white;
-        }
+        color: $lightChoco;
+        font-size: 16px;
 
         &:hover {
           background-color: $lightChoco;
+          color: white;
           transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
         }
       }
@@ -130,6 +131,13 @@
                 &:focus {
                   background-color: transparent;
                   border: 3px solid $darkChoco;
+                  color: $darkChoco;
+                }
+
+                &:hover {
+                  ackground-color: transparent;
+                  border: 3px solid $darkChoco;
+                  color: $darkChoco;
                 }
               }
 
@@ -183,6 +191,12 @@
 
               &:focus {
                 border: 3px solid $darkChoco;
+              }
+
+              &:hover {
+                background-color: transparent;
+                border: 3px solid $darkChoco;
+                color: $darkChoco;
               }
             }
           }

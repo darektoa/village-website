@@ -1,33 +1,11 @@
 import React, { useState } from "react";
-import Facebook from "../../assets/images/Facebook - Negative.svg";
-import Twitter from "../../assets/images/Twitter - Negative.svg";
-import Instagram from "../../assets/images/Instagram - Negative.svg";
 import Face from "../../assets/images/face_black_36dp.svg";
 import Email from "../../assets/images/email_black_36dp.svg";
 import PhoneIcon from "../../assets/images/phone_black_24dp 1.svg";
-import axios from "axios";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [pesan, setPesan] = useState("");
-  const [sent, setSent] = useState(false);
-
   //   End point of handle input
-
-  const resetForm = () => {
-    setName(null);
-    setEmail(null);
-    setPhone(null);
-    setPesan(null);
-
-    setTimeout(() => {
-      setSent(false);
-    }, 3000);
-  };
-
   const formSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +25,6 @@ const Contact = () => {
         }
       );
     e.target.reset();
-    resetForm();
   };
 
   return (
@@ -70,26 +47,30 @@ const Contact = () => {
               target="_blank"
               className="ctc-item"
             >
-              <img src={Facebook} alt="Facebook" />
+              <i class="fab fa-facebook"></i>
             </a>
             <a
               href="https://twitter.com/home?lang=en"
               target="_blank"
               className="ctc-item"
             >
-              <img src={Twitter} alt="Twitter" />
+              <i class="fab fa-twitter"></i>
             </a>
             <a
               href="https://www.instagram.com/"
               target="_blank"
               className="ctc-item"
             >
-              <img src={Instagram} alt="Instagram" />
+              <i class="fab fa-instagram"></i>
             </a>
           </div>
         </div>
 
-        <form className="ctc-content-container" onSubmit={formSubmit}>
+        <form
+          className="ctc-content-container"
+          onSubmit={formSubmit}
+          autocomplete="off"
+        >
           {/* --------------- Contact  */}
           <div className="ctc-content-input-container">
             {/* ---------- Contact left */}
@@ -98,14 +79,24 @@ const Contact = () => {
               <div className="ctc-content-input">
                 <label htmlFor="name">Nama Anda</label>
                 <div className="ctc-input-withicon">
-                  <input type="text" name="name" placeholder="Nama anda" />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Nama anda"
+                    required
+                  />
                   <img src={Face} alt="face" />
                 </div>
               </div>
               <div className="ctc-content-input">
                 <label htmlFor="email">Email</label>
                 <div className="ctc-input-withicon">
-                  <input type="text" name="email" placeholder="Alamat Email" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Alamat Email"
+                    required
+                  />
                   <img src={Email} alt="email" />
                 </div>
               </div>
@@ -130,6 +121,7 @@ const Contact = () => {
                   type="text"
                   name="pesan"
                   placeholder="Isi pesan anda"
+                  required
                 />
               </div>
             </div>
