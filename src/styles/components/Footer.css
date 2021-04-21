@@ -1,0 +1,22 @@
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #343434;
+  background-color: var(--main-color);
+}
+
+.footer > .container{
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+
+/*
+  FOOTER CONTENTS
+*/
+.footer p{
+  font-size: var(--small);
+  color: #FFF;
+}

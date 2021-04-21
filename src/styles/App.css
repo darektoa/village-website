@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100%;
+  min-width: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f3ee;
+  background-image: url("../assets/images/background-pattern.png");
+}
+
+/*
+  MAIN
+*/
+#root > .main {
+  min-height: 50rem;
+}
+
+/*
+  FOOTER
+*/

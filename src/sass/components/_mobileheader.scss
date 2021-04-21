@@ -1,0 +1,19 @@
+@import "../helpers/mixins";
+
+#nvd-container {
+  display: none;
+  .liquid {
+    display: none;
+  }
+}
+
+#nvd-container active {
+  display: block;
+}
+
+#toggle {
+  display: block;
+  @include dekstop {
+    display: none;
+  }
+}

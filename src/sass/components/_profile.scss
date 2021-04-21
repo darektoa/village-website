@@ -1,0 +1,67 @@
+@import "../helpers/mixins";
+@import "../helpers/variables";
+
+#prfl-ms-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 40px;
+
+  .prfl-container {
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+
+      @include dekstop {
+        width: 528px;
+        height: 395px;
+      }
+    }
+
+    .prfl-header {
+      position: relative;
+      width: 100%;
+
+      h1 {
+        font-family: "Grand Hotel", cursive;
+        font-size: 36px;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 29px;
+        z-index: 2;
+      }
+
+      @include dekstop {
+        width: 245px;
+      }
+    }
+
+    .prfl-content {
+      margin-top: 29px;
+
+      p {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: map-get($fonts-sizes, s-small-regular);
+        font-weight: 400;
+        text-align: justify;
+        line-height: 125%;
+      }
+
+      p:nth-child(2) {
+        margin-top: 29px;
+      }
+    }
+
+    @include dekstop {
+      width: 723px;
+    }
+  }
+}

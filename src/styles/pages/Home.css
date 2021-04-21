@@ -1,0 +1,110 @@
+#home-page{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*
+  HERO SECTION
+*/
+#home-page > .hero-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#home-page > .hero-box > img{
+  width: 100%;
+  height: 54rem;
+  object-fit: cover;
+}
+
+/* TEXT BOX */
+#home-page > .hero-box > .text-box{
+  width: 80%;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #FFF;
+}
+
+#home-page > .hero-box > .text-box > h2{
+  margin-bottom: 2.5rem;
+  font-size: var(--x-large);
+}
+
+#home-page > .hero-box > .text-box > p{
+  margin-bottom: 4rem;
+  font-size: var(--small);
+  text-align: justify;
+  line-height: 1.25;
+}
+
+
+/*
+  CONTENT SECTION
+*/
+#home-page > .content-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TEXT BOX */
+#home-page > .content-box > .text-box{
+  width: 100%;
+  margin-bottom: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-page > .content-box > .text-box > h2{
+  margin: 12rem 0 5rem;
+  font-size: var(--xx-large);
+  color: var(--main-accent-color);
+  text-align: center;
+}
+
+#home-page > .content-box > .text-box > p{
+  width: 90%;
+  max-width: 70rem;
+  font-size: var(--small);
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* IMAGE BOX */
+#home-page > .content-box > .img-box{
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+#home-page > .content-box > .img-box > img{
+  width: 37rem;
+  height: 46rem;
+  margin: 0 2.2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 .7rem 1.8rem 0 rgba(0, 0, 0, .25);
+  object-fit: cover;
+}
+
+#home-page > .content-box > .img-box > img:nth-child(1){
+  transform: rotate(-2.35deg);
+}
+
+#home-page > .content-box > .img-box > img:nth-child(2){
+  transform: rotate(3.35deg);
+}
