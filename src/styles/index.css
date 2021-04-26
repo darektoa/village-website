@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/Josefin-Sans.woff2") format("woff2");
+  src: url("../assets/fonts/Josefin-Sans.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Grand Hotel";
+  src: url("../assets/fonts/Grand-Hotel.woff2") format("woff2");
+  src: url("../assets/fonts/Grand-Hotel.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", "Times New Roman", "sans-serif";
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  /* border: 1px solid red; */
+}::-webkit-scrollbar{
+  width: 7px;
+  background-color: #F0F0F0;
+}::-webkit-scrollbar:horizontal{
+  height: 7px;
+}::-webkit-scrollbar-thumb{
+  background-color: #CDCDCD;
+}
+
+:root{
+  font-size: 10px;
+
+  --xx-small: 1.2rem;
+  --x-small: 1.4rem;
+  --small: 1.6rem;
+  --medium: 1.8rem;
+  --large: 2rem;
+  --x-large: 5rem;
+  --xx-large: 6rem;
+
+  --main-color: #CA6A52;
+  --main-accent-color: #8A3730;
+}
+
+html,
+body,
+main{
+  width: 100%;
+  min-width: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.hidden{
+  overflow: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus{
+  background-color: none;
+  box-shadow: 0 0 0 100px #FFF inset !important;
+}
+
+.container{
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 1000px;
+}
+
+
+
+@media (max-width: 600px) {
+  :root{
+    --xx-small: 1rem;
+    --x-small: 1.2rem;
+    --small: 1.4rem;
+    --medium: 1.6rem;
+    --large: 1.8rem;
+    --x-large: 2rem;
+    --xx-large: 3rem;
+  }
+}

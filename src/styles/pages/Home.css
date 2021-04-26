@@ -1,0 +1,228 @@
+#home-page{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+/*
+  HERO SECTION
+*/
+#home-page > .hero-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#home-page > .hero-box > img{
+  width: 100%;
+  height: 54rem;
+  object-fit: cover;
+}
+
+/* TEXT BOX */
+#home-page > .hero-box > .text-box{
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #FFF;
+}
+
+#home-page > .hero-box > .text-box > h2{
+  margin-bottom: 2.5rem;
+  font-size: calc(var(--x-large) - 8px);
+}
+
+#home-page > .hero-box > .text-box > p{
+  margin-bottom: 4rem;
+  font-size: var(--small);
+  text-align: justify;
+  line-height: 1.25;
+}
+
+#home-page > .hero-box > .text-box > span{
+  font-size: var(--small);
+  display: flex;
+  align-items: center;
+}
+
+#home-page > .hero-box > .text-box > span > .icon_location-ff0505{
+  --icon-size: 2.8rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+
+/*
+  CONTENT SECTION
+*/
+#home-page > .content-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ICONS AND MEMPHIS */
+#home-page > .content-box > .icon_leaf-grey{
+  --icon-size: 60rem;
+  position: absolute;
+  top: -26rem;
+  right: -32rem;
+  z-index: -1;
+}
+
+/* TEXT BOX */
+#home-page > .content-box > .text-box{
+  width: 100%;
+  margin-bottom: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-page > .content-box > .text-box > h2{
+  margin: 12rem 0 5rem;
+  color: var(--main-accent-color);
+  font-size: var(--x-large);
+  text-align: center;
+}
+
+#home-page > .content-box > .text-box > p{
+  width: 90%;
+  max-width: 70rem;
+  font-size: var(--small);
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* IMAGE BOX */
+#home-page > .content-box > .img-box{
+  width: auto;
+  height: auto;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#home-page > .content-box > .img-box > img{
+  width: 37rem;
+  height: 46rem;
+  margin: 0 2.2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 .7rem 1.8rem 0 rgba(0, 0, 0, .25);
+  object-fit: cover;
+}
+
+#home-page > .content-box > .img-box > img:nth-child(1){
+  transform: rotate(-2.35deg);
+}
+
+#home-page > .content-box > .img-box > img:nth-child(2){
+  transform: rotate(3.35deg);
+}
+
+/* ICONS AND MEMPHIS */
+#home-page > .content-box > .img-box > .icon_paddy-grey{
+  --icon-size: 60rem;
+  position: absolute;
+  bottom: -4rem;
+  left: -47rem;
+  z-index: -1;
+}
+
+#home-page > .content-box > .img-box > .icon_flower-grey{
+  --icon-size: 40rem;
+  position: absolute;
+  bottom: -12rem;
+  right: -20rem;
+  z-index: -1;
+}
+
+
+
+@media (max-width: 1000px) {
+  /*
+    CONTENT SECTION
+  */
+  #home-page > .content-box > .text-box > h2{
+    margin: 7rem 0 3rem;
+  }
+
+  /* IMAGE BOX */
+  #home-page > .content-box > .img-box{
+    margin-bottom: 20rem;
+  }
+
+  #home-page > .content-box > .img-box > img{
+    width: 20rem;
+    height: 24rem;
+    margin: 0 1rem;
+  }
+
+  /* ICONS AND MEMPHIS */
+  #home-page > .content-box > .icon_leaf-grey{
+    --icon-size: 25rem;
+    top: -7rem;
+    right: -7rem;
+  }
+
+  #home-page > .content-box > .img-box > .icon_paddy-grey{
+    --icon-size: 40rem;
+    bottom: -20rem;
+    left: -14rem;
+  }
+  
+  #home-page > .content-box > .img-box > .icon_flower-grey{
+    --icon-size: 22rem;
+    bottom: -7rem;
+    right: -11.5rem;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  /*
+    HERO SECTION
+  */
+  #home-page > .hero-box > .text-box > h2{
+    font-size: var(--xx-large);
+  }
+
+  /*
+    CONTENT SECTION
+  */
+  #home-page > .content-box > .text-box > h2{
+    max-width: 27.5rem;
+    font-size: var(--x-large);
+  }
+
+  /* IMAGE BOX */
+  #home-page > .content-box > .img-box > img{
+    width: 17rem;
+    height: 21rem;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  /*
+    CONTENT SECTION
+  */
+  #home-page > .content-box > .img-box > img{
+    width: 40vw;
+    height: 50vw;
+  }
+}

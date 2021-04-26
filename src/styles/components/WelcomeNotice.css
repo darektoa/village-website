@@ -1,0 +1,76 @@
+#welcome-notice{
+	width: 100%;
+	height: 6.6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 0;
+	background-color: var(--main-color);
+	overflow: hidden;
+	transition: .5s top;
+}
+
+#welcome-notice.hidden{
+	position: absolute;
+	top: -6.6rem;
+}
+
+#welcome-notice > .icon_memphis-3{
+	--icon-size: 10.6rem;
+	position: absolute;
+	top: -4rem;
+	left: 5rem;
+}
+
+#welcome-notice > .icon_memphis-4{
+	--icon-size: 10rem;
+	position: absolute;
+	bottom: -6.5rem;
+	left: 36rem;
+}
+
+#welcome-notice > .icon_memphis-5{
+	--icon-size: 12.5rem;
+	position: absolute;
+	bottom: -6.3rem;
+	right: 21rem;
+}
+
+#welcome-notice > .icon_memphis-6{
+	--icon-size: 17rem;
+	position: absolute;
+	top: -5.2rem;
+	right: 0;
+}
+
+#welcome-notice > span{
+	width: 80%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	color: #FFF;
+	font-size: var(--medium);
+	text-align: center;
+	overflow: hidden;
+	z-index: 2;
+}
+
+#welcome-notice > button{
+	--icon-size: 3.6rem;
+	position: absolute;
+	right: 2.5rem;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	z-index: 2;
+}
+
+
+
+@media (max-width: 1000px) {
+	#welcome-notice{
+		top: -6.6rem;
+		position: absolute;
+	}
+}

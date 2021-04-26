@@ -1,0 +1,161 @@
+*[class^="icon_"]{
+  --icon-size: 2.5rem;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: inline-block;
+  background-image: url("../assets/images/icons.svg");
+  background-size: calc(var(--icon-size) * 10);
+  background-repeat: no-repeat;
+}
+
+.icon_custom{
+  --icon-x: 0;
+  --icon-y: 0;
+  background-position-x: calc(var(--icon-size) * -1 * var(--icon-x));
+  background-position-y: calc(var(--icon-size) * -1 * var(--icon-y));
+}
+
+
+/*
+  ICONS MENU
+*/
+.icon_menu-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 0);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_menu-36b889{
+  background-position-x: calc(var(--icon-size) * -1 * 1);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+
+/*
+  ICONS SYMBOL
+*/
+.icon_search-828282{
+  background-position-x: calc(var(--icon-size) * -1 * 2);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_face-828282{
+  background-position-x: calc(var(--icon-size) * -1 * 3);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_phone-828282{
+  background-position-x: calc(var(--icon-size) * -1 * 4);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_email-828282{
+  background-position-x: calc(var(--icon-size) * -1 * 5);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_search-8a3730{
+  background-position-x: calc(var(--icon-size) * -1 * 6);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_face-8a3730{
+  background-position-x: calc(var(--icon-size) * -1 * 7);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_phone-8a3730{
+  background-position-x: calc(var(--icon-size) * -1 * 8);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_email-8a3730{
+  background-position-x: calc(var(--icon-size) * -1 * 9);
+  background-position-y: calc(var(--icon-size) * -1 * 0);
+}
+
+.icon_location-ff0505{
+  background-position-x: calc(var(--icon-size) * -1 * 0);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_peoples-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 1);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_male-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 2);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_female-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 3);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_cross-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 3);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+
+/*
+  ICONS ACCESSORIES
+*/
+.icon_leaf-grey{
+  background-position-x: calc(var(--icon-size) * -1 * 4);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_paddy-grey{
+  background-position-x: calc(var(--icon-size) * -1 * 5);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_flower-grey{
+  background-position-x: calc(var(--icon-size) * -1 * 6);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+
+/*
+  ICONS MEMPHIS
+*/
+.icon_memphis-1{
+  background-position-x: calc(var(--icon-size) * -1 * 7);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_memphis-2{
+  background-position-x: calc(var(--icon-size) * -1 * 8);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_memphis-3{
+  background-position-x: calc(var(--icon-size) * -1 * 9);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}
+
+.icon_memphis-4{
+  background-position-x: calc(var(--icon-size) * -1 * 0);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+.icon_memphis-5{
+  background-position-x: calc(var(--icon-size) * -1 * 1);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+.icon_memphis-6{
+  background-position-x: calc(var(--icon-size) * -1 * 2);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+
+/*
+  BACKGROUND
+*/
+.icon_bg-welcome-notice{
+  background-position-x: calc(var(--icon-size) * -1 * 9);
+  background-position-y: calc(var(--icon-size) * -1 * 1);
+}

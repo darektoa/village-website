@@ -1,0 +1,23 @@
+#root{
+  width: 100%;
+  min-width: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../assets/images/bg_pattern.png");
+}
+
+
+/*
+  MAIN
+*/
+#root > .main{
+  --header-height: 106px;
+  --footer-height: 66px;
+
+  min-height: calc(
+    100vh -
+    var(--header-height)*2 -
+    var(--footer-height)*1
+  );
+}
