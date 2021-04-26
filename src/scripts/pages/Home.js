@@ -1,13 +1,25 @@
 import '../../styles/pages/Home.css';
-import hero_1 from '../../assets/images/home/hero_1.png';
+import { createRef, forwardRef, useLayoutEffect } from 'react';
+import SliderInititator from '../utils/slider-initiator.js';
+import heroData from '../data/hero-data.js';
 import illustration_1 from '../../assets/images/home/illustration_1.png';
 import illustration_2 from '../../assets/images/home/illustration_2.png';
 
 const Home = (props) => {
+  const sliderBox = createRef();
+
+  useLayoutEffect(() => {
+    SliderInititator.init({
+      items: sliderBox.current.childNodes,
+      interval: 3000,
+    });
+  });
+
+
   return (
     <section id="home-page">
       <div className="hero-box">
-        <img src={hero_1} alt="Village Illustration" height="500"/>
+        <SliderBox data={heroData} ref={sliderBox}></SliderBox>
         <div className="text-box container">
           <h2>Kampoeng Cireundeu</h2>
           <p>Kita bertekad, tahun 2021 menjadi tahun untuk meletakkan dasar-dasar yang kokoh untuk membangun ekonomi desa, sekaligus menjadi tonggak penting untuk memulai mewujudkan Kampoeng Cireundeu sebagai kampoeng wisata. Untuk itu, semua pihak harus semakin optimis, siap bekerja lebih keras, bersama-sama, bergotong royong dan berkolaborasi, karena inilah yang menjadi modal utama kita</p>
@@ -36,5 +48,16 @@ const Home = (props) => {
     </section>
   );
 };
+
+
+const SliderBox = forwardRef((props, ref) => {
+  return (
+    <div className="slider-box" ref={ref}>
+      {props.data.map((item, index) => (
+        <img src={item} key={index} alt="Village Illustration" height="500"/>
+      ))}
+    </div>
+  );
+});
 
 export default Home;
