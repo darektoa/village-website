@@ -79,6 +79,8 @@
 <circle cx="198" cy="286" r="2" fill="#8A3730"/>
 <path d="M200 250.833V269.286H300V230H242.262V250.833H200Z" fill="#8A3730"/>
 <path d="M379.167 226.708L373.292 220.833L350 244.125L326.708 220.833L320.833 226.708L344.125 250L320.833 273.292L326.708 279.167L350 255.875L373.292 279.167L379.167 273.292L355.875 250L379.167 226.708Z" fill="white"/>
+<rect x="404.167" y="204.167" width="91.6667" height="91.6667" rx="45.8333" stroke="white" stroke-width="8.33333"/>
+<path d="M434.028 272.917V228.472L471.528 250L434.028 272.917Z" fill="white" stroke="white" stroke-width="1.38889" stroke-linejoin="round"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="scale(0.002)"/>

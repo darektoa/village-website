@@ -100,7 +100,7 @@
     background-color: #8A3730;
     filter: opacity(0);
     z-index: 100;
-    transition: .5s right;
+    transition: .5s right, .8s filter;
   }
 
   .header nav.show{

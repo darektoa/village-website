@@ -1,0 +1,83 @@
+#profile-page{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+/* HERO SLIDER BOX */
+#profile-page > .slider-box{
+	width: 100%;
+	max-width: 53rem;
+	height: 40rem;
+	margin-bottom: 3rem;
+	display: flex;
+	border-radius: 1.5rem;
+	overflow: hidden;
+}
+  
+#profile-page > .slider-box > img{
+	width: 100vw;
+	height: 100%;
+	flex-shrink: 0;
+	object-fit: cover;
+}
+
+/* HEADING 2 */
+#profile-page > h2{
+	margin-bottom: 3rem;
+	position: relative;
+	font-size: calc(var(--x-large) - 1.4rem);
+	font-family: "Grand Hotel";
+}
+
+#profile-page > h2 > .background-heading{
+	width: 15rem;
+	height: 3.3rem;
+	position: absolute;
+	top: 2.5rem;
+	right: -1rem;
+	background-color: #CA6A52;
+	z-index: -1;
+}
+
+#profile-page
+
+/* TEXT BOX  */
+#profile-page > .text-box{
+	width: 100%;
+	max-width: 72rem;
+	display: flex;
+	flex-direction: column;	
+}
+
+#profile-page > .text-box > p{
+	width: 100%;
+	margin-bottom: 3rem;
+	font-size: var(--small);
+}
+
+
+
+@media (max-width: 600px) {
+	/* HERO SLIDER BOX */
+	#profile-page > .slider-box{
+		width: 100%;
+		max-width: 53rem;
+		height: 30rem;
+		margin-bottom: 3rem;
+		display: flex;
+		border-radius: 1.5rem;
+		overflow: hidden;
+	}
+
+	/* HEADING 2 */
+	#profile-page > h2{
+		font-size: calc(var(--xx-large) + 0.6rem);
+	}
+
+	/* TEXT BOX  */
+	#profile-page > .text-box > p{
+		font-size: var(--medium);
+	}
+}

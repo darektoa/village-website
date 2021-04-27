@@ -98,6 +98,11 @@
   background-position-y: calc(var(--icon-size) * -1 * 2);
 }
 
+.icon_play-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 4);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
 
 /*
   ICONS ACCESSORIES

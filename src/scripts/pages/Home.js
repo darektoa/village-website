@@ -1,33 +1,19 @@
 import '../../styles/pages/Home.css';
-import { createRef, forwardRef, useLayoutEffect } from 'react';
-import SliderInititator from '../utils/slider-initiator.js';
-import heroData from '../data/hero-data.js';
-import illustration_1 from '../../assets/images/home/illustration_1.png';
-import illustration_2 from '../../assets/images/home/illustration_2.png';
+import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
+import video_hero from '../../assets/videos/home/video_hero.mp4';
+import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
+import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
 
 const Home = (props) => {
-  const sliderBox = createRef();
-
-  useLayoutEffect(() => {
-    SliderInititator.init({
-      items: sliderBox.current.childNodes,
-      interval: 3000,
-    });
-  });
-
-
   return (
     <section id="home-page">
       <div className="hero-box">
-        <SliderBox data={heroData} ref={sliderBox}></SliderBox>
-        <div className="text-box container">
-          <h2>Kampoeng Cireundeu</h2>
-          <p>Kita bertekad, tahun 2021 menjadi tahun untuk meletakkan dasar-dasar yang kokoh untuk membangun ekonomi desa, sekaligus menjadi tonggak penting untuk memulai mewujudkan Kampoeng Cireundeu sebagai kampoeng wisata. Untuk itu, semua pihak harus semakin optimis, siap bekerja lebih keras, bersama-sama, bergotong royong dan berkolaborasi, karena inilah yang menjadi modal utama kita</p>
-          <span>
-            <i className="icon_location-ff0505"></i>
-            Leuwigajah, Cimahi Selatan, Cimahi, Jawa Barat 40532
-          </span>
-        </div>
+        <video 
+          className="video-box" 
+          src={video_hero} 
+          poster={thumbnail_1} 
+          controls
+        ></video>
       </div>
 
       <div className="content-box container">
@@ -48,16 +34,5 @@ const Home = (props) => {
     </section>
   );
 };
-
-
-const SliderBox = forwardRef((props, ref) => {
-  return (
-    <div className="slider-box" ref={ref}>
-      {props.data.map((item, index) => (
-        <img src={item} key={index} alt="Village Illustration" height="500"/>
-      ))}
-    </div>
-  );
-});
 
 export default Home;
