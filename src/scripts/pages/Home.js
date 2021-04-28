@@ -1,5 +1,5 @@
 import '../../styles/pages/Home.css';
-// import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
+import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
 import hero_video from '../../assets/videos/home/hero_video.mp4';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
@@ -11,7 +11,7 @@ const Home = (props) => {
         <video 
           className="video-box" 
           src={hero_video}
-          // ref={heroVideo}
+          poster={thumbnail_1}
           autoPlay  
           loop
         ></video>
