@@ -1,18 +1,27 @@
 import '../../styles/pages/Home.css';
-import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
-import video_hero from '../../assets/videos/home/video_hero.mp4';
+// import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
+import hero_video from '../../assets/videos/home/hero_video.mp4';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
+import { createRef, useLayoutEffect } from 'react';
 
 const Home = (props) => {
+  // const heroVideo = createRef();
+  
+  // useLayoutEffect(() => {
+  //   console.log(heroVideo);
+  //   heroVideo.current.play();
+  // }, );
+
   return (
     <section id="home-page">
-      <div className="hero-box">
+      <div className="hero-box container">
         <video 
           className="video-box" 
-          src={video_hero} 
-          poster={thumbnail_1} 
-          controls
+          src={hero_video}
+          // ref={heroVideo}
+          autoPlay  
+          loop
         ></video>
       </div>
 

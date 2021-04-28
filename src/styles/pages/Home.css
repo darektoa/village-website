@@ -24,10 +24,9 @@
 /* HERO VIDEO BOX */
 #home-page > .hero-box > .video-box{
   width: 100%;
-  max-height: 53rem;
   display: flex;
-  background-color: #000;
   overflow: hidden;
+  border-radius: 1.5rem;
 }
 
 #home-page > .hero-box > .icon_play-fff{

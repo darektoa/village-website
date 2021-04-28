@@ -5,33 +5,97 @@
 }
 
 
-/* HERO SLIDER BOX */
-#profile-page > .slider-box{
-	width: 100%;
-	max-width: 53rem;
-	height: 40rem;
-	margin-bottom: 3rem;
-	display: flex;
-	border-radius: 1.5rem;
-	overflow: hidden;
+/*
+  HERO SECTION
+*/
+#profile-page > .hero-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-  
-#profile-page > .slider-box > img{
-	width: 100vw;
+
+/* HERO SLIDER BOX */
+#profile-page > .hero-box > .slider-box{
+  width: 100%;
+  height: 54rem;
+  display: flex;
+  overflow: hidden;
+}
+
+#profile-page > .hero-box > .slider-box > img{
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* DARKEN SLIDER */
+#profile-page > .hero-box > .darken-slider{
+	width: 100%;
 	height: 100%;
-	flex-shrink: 0;
-	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .4);
+	z-index: 0;
+}
+
+/* TEXT BOX */
+#profile-page > .hero-box > .text-box{
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #FFF;
+}
+
+#profile-page > .hero-box > .text-box > h2{
+  margin-bottom: 2.5rem;
+  font-size: calc(var(--x-large) - 8px);
+}
+
+#profile-page > .hero-box > .text-box > p{
+  margin-bottom: 4rem;
+  font-size: var(--small);
+  text-align: justify;
+  line-height: 1.25;
+}
+
+#profile-page > .hero-box > .text-box > span{
+  font-size: var(--small);
+  display: flex;
+  align-items: center;
+}
+
+#profile-page > .hero-box > .text-box > span > .icon_location-ff0505{
+  --icon-size: 2.8rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+
+/*
+	CONTENT SECTION
+*/
+#profile-page > .content-box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* HEADING 2 */
-#profile-page > h2{
-	margin-bottom: 3rem;
+#profile-page > .content-box > h2{
+	margin: 5rem 0 3rem 0;
 	position: relative;
 	font-size: calc(var(--x-large) - 1.4rem);
 	font-family: "Grand Hotel";
 }
 
-#profile-page > h2 > .background-heading{
+#profile-page > .content-box > h2 > .background-heading{
 	width: 15rem;
 	height: 3.3rem;
 	position: absolute;
@@ -41,17 +105,14 @@
 	z-index: -1;
 }
 
-#profile-page
-
 /* TEXT BOX  */
-#profile-page > .text-box{
+#profile-page > .content-box > .text-box{
 	width: 100%;
-	max-width: 72rem;
 	display: flex;
 	flex-direction: column;	
 }
 
-#profile-page > .text-box > p{
+#profile-page > .content-box > .text-box > p{
 	width: 100%;
 	margin-bottom: 3rem;
 	font-size: var(--small);
@@ -60,24 +121,13 @@
 
 
 @media (max-width: 600px) {
-	/* HERO SLIDER BOX */
-	#profile-page > .slider-box{
-		width: 100%;
-		max-width: 53rem;
-		height: 30rem;
-		margin-bottom: 3rem;
-		display: flex;
-		border-radius: 1.5rem;
-		overflow: hidden;
-	}
-
 	/* HEADING 2 */
-	#profile-page > h2{
+	#profile-page > .content-box > h2{
 		font-size: calc(var(--xx-large) + 0.6rem);
 	}
 
 	/* TEXT BOX  */
-	#profile-page > .text-box > p{
+	#profile-page > .content-box > .text-box > p{
 		font-size: var(--medium);
 	}
 }
