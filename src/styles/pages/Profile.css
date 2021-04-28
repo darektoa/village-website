@@ -121,6 +121,13 @@
 
 
 @media (max-width: 600px) {
+	/*
+    HERO SECTION
+  */
+  #profile-page > .hero-box > .text-box > h2{
+    font-size: var(--xx-large);
+  }
+
 	/* HEADING 2 */
 	#profile-page > .content-box > h2{
 		font-size: calc(var(--xx-large) + 0.6rem);

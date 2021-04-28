@@ -3,16 +3,8 @@ import '../../styles/pages/Home.css';
 import hero_video from '../../assets/videos/home/hero_video.mp4';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
-import { createRef, useLayoutEffect } from 'react';
 
 const Home = (props) => {
-  // const heroVideo = createRef();
-  
-  // useLayoutEffect(() => {
-  //   console.log(heroVideo);
-  //   heroVideo.current.play();
-  // }, );
-
   return (
     <section id="home-page">
       <div className="hero-box container">
