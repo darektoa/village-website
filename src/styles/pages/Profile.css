@@ -106,13 +106,13 @@
 }
 
 /* TEXT BOX  */
-#profile-page > .content-box > .text-box{
+#profile-page > .content-box > .paragraph-box{
 	width: 100%;
 	display: flex;
 	flex-direction: column;	
 }
 
-#profile-page > .content-box > .text-box > p{
+#profile-page > .content-box > .paragraph-box > p{
 	width: 100%;
 	margin-bottom: 3rem;
 	font-size: var(--small);
@@ -134,7 +134,7 @@
 	}
 
 	/* TEXT BOX  */
-	#profile-page > .content-box > .text-box > p{
+	#profile-page > .content-box > .paragraph-box > p{
 		font-size: var(--medium);
 	}
 }

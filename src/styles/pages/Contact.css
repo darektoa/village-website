@@ -1,0 +1,47 @@
+#contact-page{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*
+  TEXT BOX 
+*/
+#contact-page > .text-box{
+  width: 100%;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact-page > .text-box > h2{
+  margin-bottom: 3rem;
+  color: var(--main-accent-color);
+  font-size: calc(var(--x-large) - 1rem);
+  text-align: center;
+}
+
+#contact-page > .text-box > h3{
+  margin-bottom: 1.6rem;
+  color: var(--main-accent-color);
+  font-size: var(--small);
+  text-align: center;
+}
+
+#contact-page > .text-box > p{
+  margin-bottom: 1.6rem;
+  font-size: var(--small);
+  text-align: center;
+}
+
+
+
+@media (max-width: 1000px) {
+  #contact-page > .text-box > h2{
+    font-size: var(--xx-large);
+  }
+}

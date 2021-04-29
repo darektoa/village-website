@@ -107,9 +107,13 @@
   text-align: center;
 }
 
-#home-page > .content-box > .text-box > p{
-  width: 90%;
+#home-page > .content-box > .text-box > .paragraph-box{
+  width: 100%;
   max-width: 70rem;
+}
+
+#home-page > .content-box > .text-box > .paragraph-box > p{
+  margin-bottom: 3rem;
   font-size: var(--small);
   text-align: center;
   line-height: 1.25;
