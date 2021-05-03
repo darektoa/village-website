@@ -11,6 +11,7 @@
 #profile-page > .hero-box{
   width: 100%;
   height: auto;
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,20 +90,11 @@
 
 /* HEADING 2 */
 #profile-page > .content-box > h2{
-	margin: 5rem 0 3rem 0;
-	position: relative;
+	margin-bottom: 3rem;
+  color: var(--main-accent-color);
 	font-size: calc(var(--x-large) - 1.4rem);
 	font-family: "Grand Hotel";
-}
-
-#profile-page > .content-box > h2 > .background-heading{
-	width: 15rem;
-	height: 3.3rem;
-	position: absolute;
-	top: 2.5rem;
-	right: -1rem;
-	background-color: #CA6A52;
-	z-index: -1;
+	text-align: center;
 }
 
 /* TEXT BOX  */

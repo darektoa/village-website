@@ -27,7 +27,10 @@ const SliderInitiator = {
   _initAutoSlide({ items, interval, counter }) {
     if (interval) {
       setInterval(() => this._autoSlide(items, counter), interval);
-      window.onresize = () => this._autoSlide(items, counter);
+      window.onresize = (event) => {
+        this._autoSlide(items, counter);
+        event.stopImmediatePropagation();
+      }
     }
   },
 

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const useHeaderBackground = (position) => {
 	const { pathname } = useLocation();
-	const whiteHeaderPath = ['/', '/home', '/profile'];
+	const whiteHeaderPath = ['/profile'];
 	const checkPath = whiteHeaderPath.some((item) => item === pathname);
 	if (position === 'top' && checkPath) return 'white'
 

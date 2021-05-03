@@ -7,6 +7,7 @@ const Profile = () => {
   const slideImagesRef = useRef(slideData.map(() => createRef()));
   
   useLayoutEffect(() => {
+    console.log('test');
     SliderInititator.init({
       items: slideImagesRef.current.map(item => item.current),
       interval: 3000,
@@ -28,10 +29,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="content-box container">
-        <h2>
-          Sejarah Kampung Cireundeu
-          <i className="background-heading"></i>
-        </h2>
+        <h2>Sejarah Kampung Cireundeu</h2>
         <div className="paragraph-box">
           <p>Kami sampaikan selamat datang di situs web Kampoeng Cireundeu. Kami senang Anda sudah berkunjung, semoga melalui situs web ini kami dapat memberikan segala informasi yang aktual dan terperbarui langsung dari Kampoeng kami. Situs web ini merupakan salah satu wujud dari komitmen Kepala Kampoeng Cireundeu, pada pentingnya komunikasi dan transparansi publik.</p>
           <p>Situs web ini adalah bagian dari Pelayanan Administrasi Terpadu Kampoeng Cireundeu yang mulai diimplementasikan berbasis Teknologi.</p>

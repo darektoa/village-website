@@ -28,7 +28,7 @@ const Main = () => {
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/blog" component={Blog}/>
-        <Route path="/gallery" component={Gallery} />
+        <Route path="/gallery/:category" component={Gallery} />
         <Route path="/profile" component={Profile} />
         <Route path="/contact" component={Contact} />
       </Switch>
