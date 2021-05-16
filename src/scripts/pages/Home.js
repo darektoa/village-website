@@ -1,20 +1,32 @@
 import '../../styles/pages/Home.css';
+import { useState } from 'react';
+import StringHelper from '../utils/string-helper.js'
 import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
 import hero_video from '../../assets/videos/home/hero_video.mp4';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
 
 const Home = (props) => {
+  const [heroMuted, setHeroMuted] = useState(true);
+  const heroVideoMuted            = heroMuted ? 'muted': '';
+  const iconVolumeClassName       = StringHelper.join(' ', 'icon-volume', heroVideoMuted);
+
   return (
     <section id="home-page">
       <div className="hero-box container">
-        <video 
-          className="video-box" 
-          src={hero_video}
-          poster={thumbnail_1}
-          autoPlay  
-          loop
-        ></video>
+        <div className="video-box" onClick={()=> setHeroMuted(!heroVideoMuted)}>
+          <video
+            src={hero_video}
+            poster={thumbnail_1}
+            muted={heroMuted}
+            autoPlay
+            preload="true"
+            loop
+          ></video>
+          <div className={iconVolumeClassName}>
+            <i className="icon_custom"></i>
+          </div>
+        </div>
       </div>
 
       <div className="content-box container">

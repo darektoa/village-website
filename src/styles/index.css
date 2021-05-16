@@ -44,6 +44,8 @@
 
   --main-color: #CA6A52;
   --main-accent-color: #8A3730;
+  --main-color-rgb: 202, 106, 82;
+  --main-accent-color-rgb: 138, 55, 48;
 }
 
 html,
@@ -54,6 +56,10 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+img{
+  background-color: #CDCDCD;
 }
 
 body.hidden{

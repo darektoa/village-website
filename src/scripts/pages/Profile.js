@@ -7,7 +7,6 @@ const Profile = () => {
   const slideImagesRef = useRef(slideData.map(() => createRef()));
   
   useLayoutEffect(() => {
-    console.log('test');
     SliderInititator.init({
       items: slideImagesRef.current.map(item => item.current),
       interval: 3000,

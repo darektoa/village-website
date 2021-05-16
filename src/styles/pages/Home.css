@@ -24,50 +24,39 @@
 /* HERO VIDEO BOX */
 #home-page > .hero-box > .video-box{
   width: 100%;
+  height: auto;
   display: flex;
-  overflow: hidden;
+  align-items: flex-start;
+  position: relative;
   border-radius: 1.5rem;
+  overflow: hidden;
 }
 
-#home-page > .hero-box > .icon_play-fff{
-  --icon-size: 7.7rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* TEXT BOX */
-#home-page > .hero-box > .text-box{
-  max-width: 60rem;
+#home-page > .hero-box > .video-box > video{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  color: #FFF;
-}
-
-#home-page > .hero-box > .text-box > h2{
-  margin-bottom: 2.5rem;
-  font-size: calc(var(--x-large) - 8px);
-}
-
-#home-page > .hero-box > .text-box > p{
-  margin-bottom: 4rem;
-  font-size: var(--small);
-  text-align: justify;
-  line-height: 1.25;
-}
-
-#home-page > .hero-box > .text-box > span{
-  font-size: var(--small);
-  display: flex;
-  align-items: center;
-}
-
-#home-page > .hero-box > .text-box > span > .icon_location-ff0505{
-  --icon-size: 2.8rem;
-  margin-right: 1.5rem;
   flex-shrink: 0;
+}
+
+#home-page > .hero-box > .video-box > .icon-volume{
+  padding: .5rem;
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#home-page > .hero-box > .video-box > .icon-volume > .icon_custom{
+  --icon-size: 2rem;
+  background-position-x: calc(var(--icon-size) * -1 * 6);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+#home-page > .hero-box > .video-box > .icon-volume.muted > .icon_custom{
+  background-position-x: calc(var(--icon-size) * -1 * 5);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
 }
 
 
@@ -208,18 +197,6 @@
 
 @media (max-width: 600px) {
   /*
-    HERO SECTION
-  */
-  #home-page > .hero-box > .text-box > h2{
-    font-size: var(--xx-large);
-  }
-
-  #home-page > .hero-box > .icon_play-fff{
-    --icon-size:6rem;
-  }
-
-
-  /*
     CONTENT SECTION
   */
   #home-page > .content-box > .text-box > h2{
@@ -237,6 +214,14 @@
 
 
 @media (max-width: 400px) {
+  /*
+    HERO SECTION
+  */
+  #home-page > .hero-box > .video-box > .icon-volume > .icon_custom{
+    --icon-size: 1.5rem;
+  }
+
+
   /*
     CONTENT SECTION
   */

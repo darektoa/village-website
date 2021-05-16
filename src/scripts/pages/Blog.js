@@ -62,7 +62,9 @@ const Article = (props) => {
 
   return(
     <div className="article">
-      <img src={thumbnail} alt="" />
+      <div className="img-box">
+        <img src={thumbnail} alt="" />
+      </div>
       <div className="text-box">
         <Tags tags={tags} list={list}/>
         <h4>{title}</h4>

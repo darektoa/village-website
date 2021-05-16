@@ -2,7 +2,7 @@
   --icon-size: 2.5rem;
   width: var(--icon-size);
   height: var(--icon-size);
-  display: inline-block;
+  display: flex;
   background-image: url("../assets/images/icons.svg");
   background-size: calc(var(--icon-size) * 10);
   background-repeat: no-repeat;
@@ -103,6 +103,16 @@
   background-position-y: calc(var(--icon-size) * -1 * 2);
 }
 
+.icon_volume-muted-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 5);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
+.icon_volume-unmuted-fff{
+  background-position-x: calc(var(--icon-size) * -1 * 6);
+  background-position-y: calc(var(--icon-size) * -1 * 2);
+}
+
 
 /*
   ICONS ACCESSORIES
@@ -154,13 +164,4 @@
 .icon_memphis-6{
   background-position-x: calc(var(--icon-size) * -1 * 2);
   background-position-y: calc(var(--icon-size) * -1 * 2);
-}
-
-
-/*
-  BACKGROUND
-*/
-.icon_bg-welcome-notice{
-  background-position-x: calc(var(--icon-size) * -1 * 9);
-  background-position-y: calc(var(--icon-size) * -1 * 1);
 }

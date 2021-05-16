@@ -27,10 +27,12 @@ const Main = () => {
     <main className="main">
       <Switch>
         <Route path="/" exact component={Home}/>
-        <Route path="/blog" component={Blog}/>
-        <Route path="/gallery/:category" component={Gallery} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/blog" exact component={Blog}/>
+        <Route path="/blog/:idBlog" exact component={Blog}/>
+        <Route path="/gallery" exact component={Gallery} />
+        <Route path="/gallery/:idCategory" component={Gallery} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/contact" exact component={Contact} />
       </Switch>
     </main>
   );

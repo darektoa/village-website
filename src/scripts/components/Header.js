@@ -17,17 +17,13 @@ const Header = (props) => {
   
   useEffect(() => {
     setNavOpened(false);
-  }, [pathname]);
+  }, [pathname, innerWidth]);
 
   useEffect(() => {
     const bodyElmnt = document.body;
     if (navOpened) bodyElmnt.classList.add('hidden')
     else bodyElmnt.classList.remove('hidden');
   }, [navOpened]);
-
-  useEffect(() => {
-    setNavOpened(false);
-  }, [innerWidth]);
 
   return(
     <header className={headerClassName}>

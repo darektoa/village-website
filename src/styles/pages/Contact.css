@@ -6,6 +6,15 @@
   align-items: center;
 }
 
+/* ICONS AND MEMPHIS */
+#contact-page > .icon_leaf-grey{
+  --icon-size: 60rem;
+  position: absolute;
+  bottom: -3rem;
+  right: -10rem;
+  z-index: -1;
+}
+
 
 /*
   TEXT BOX 
@@ -41,6 +50,15 @@
 
 
 @media (max-width: 1000px) {
+  /* ICONS AND MEMPHIS */
+  #contact-page > .icon_leaf-grey{
+    --icon-size: 35rem;
+    position: absolute;
+    bottom: 12rem;
+    right: -20rem;
+    z-index: -1;
+  }
+
   #contact-page > .text-box > h2{
     font-size: var(--xx-large);
   }
