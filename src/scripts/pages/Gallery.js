@@ -65,7 +65,7 @@ const ImageMedia = (props) => {
 
 /* VIDEO ELEMENT */
 const VideoMedia = (props) => {
-  const { id, thumbnail, src } = props;
+  const { id, thumbnail } = props;
 
   return(
     <div className="media" key={id}>
