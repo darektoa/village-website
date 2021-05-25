@@ -1,12 +1,21 @@
 import '../../styles/pages/Profile.css';
-import { useLayoutEffect , useRef, createRef, forwardRef } from 'react';
+import { useLayoutEffect , useRef, createRef, forwardRef, useState } from 'react';
 import slideData from '../data/slider-data.js';
 import SliderInititator from '../utils/slider-initiator.js';
+import GeneralData from '../data/GeneralData';
 
 const Profile = () => {
   const slideImagesRef = useRef(slideData.map(() => createRef()));
+  const [data, setData] = useState({
+    name: 'Village Website',
+    description: '',
+    address: '',
+  });
   
   useLayoutEffect(() => {
+    GeneralData.getAll()
+    .then(data => setData(data));
+
     SliderInititator.init({
       items: slideImagesRef.current.map(item => item.current),
       interval: 3000,
@@ -19,16 +28,16 @@ const Profile = () => {
         <SliderBox data={slideData} ref={slideImagesRef}></SliderBox>
         <div className="darken-slider"></div>
         <div className="text-box container">
-          <h2>Kampoeng Cireundeu</h2>
-          <p>Kita bertekad, tahun 2021 menjadi tahun untuk meletakkan dasar-dasar yang kokoh untuk membangun ekonomi desa, sekaligus menjadi tonggak penting untuk memulai mewujudkan Kampoeng Cireundeu sebagai kampoeng wisata. Untuk itu, semua pihak harus semakin optimis, siap bekerja lebih keras, bersama-sama, bergotong royong dan berkolaborasi, karena inilah yang menjadi modal utama kita</p>
+          <h2>{data.name}</h2>
+          <p>{data.description}</p>
           <span>
             <i className="icon_location-ff0505"></i>
-            Leuwigajah, Cimahi Selatan, Cimahi, Jawa Barat 40532
+            {data.address}
           </span>
         </div>
       </div>
       <div className="content-box container">
-        <h2>Sejarah Kampung Cireundeu</h2>
+        <h2>Sejarah {data.name}</h2>
         <div className="paragraph-box">
           <p>Kami sampaikan selamat datang di situs web Kampoeng Cireundeu. Kami senang Anda sudah berkunjung, semoga melalui situs web ini kami dapat memberikan segala informasi yang aktual dan terperbarui langsung dari Kampoeng kami. Situs web ini merupakan salah satu wujud dari komitmen Kepala Kampoeng Cireundeu, pada pentingnya komunikasi dan transparansi publik.</p>
           <p>Situs web ini adalah bagian dari Pelayanan Administrasi Terpadu Kampoeng Cireundeu yang mulai diimplementasikan berbasis Teknologi.</p>

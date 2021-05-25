@@ -10,7 +10,7 @@ import thumbnail_9 from '../../assets/images/blog/thumbnail_9.png';
 import thumbnail_10 from '../../assets/images/blog/thumbnail_10.png';
 import thumbnail_11 from '../../assets/images/blog/thumbnail_11.png';
 
-const articlesData = [
+const articleData = [
     {
         thumbnail: thumbnail_1,
         title: 'The More Important the Work, the More Important the Rest',
@@ -68,4 +68,4 @@ const articlesData = [
     },
 ]
 
-export default articlesData;
+export default articleData;

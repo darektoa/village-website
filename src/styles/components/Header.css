@@ -3,13 +3,25 @@
   min-height: 10.6rem;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
   color: #343434;
+  transition: all .4s;
+  z-index: 100;
 }
 
 .header.white{
   background-color: #FFF;
 }
 
+.header.sticked{
+  background-color: #FFF;
+  box-shadow: 0 .4rem 10px 0 #CDCDCD;
+}
+
+.header.active{
+  z-index: 110;
+}
 
 .header > .container{
   display: flex;

@@ -5,9 +5,11 @@ import Footer from './components/Footer.js';
 import Home from './pages/Home.js';
 import Blog from './pages/Blog.js';
 import Gallery from './pages/Gallery.js';
+import GalleryDetail from './pages/GalleryDetail.js';
 import Profile from './pages/Profile.js';
 import Contact from './pages/Contact.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import GeneralData from './data/GeneralData';
 
 const App = () => {
   return (
@@ -23,6 +25,7 @@ const App = () => {
 
 
 const Main = () => {
+  console.log(GeneralData.getAll());
   return(
     <main className="main">
       <Switch>
@@ -30,7 +33,7 @@ const Main = () => {
         <Route path="/blog" exact component={Blog}/>
         <Route path="/blog/:idBlog" exact component={Blog}/>
         <Route path="/gallery" exact component={Gallery} />
-        <Route path="/gallery/:idCategory" component={Gallery} />
+        <Route path="/gallery/:idAlbum" component={GalleryDetail} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/contact" exact component={Contact} />
       </Switch>

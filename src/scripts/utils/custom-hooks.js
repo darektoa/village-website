@@ -20,7 +20,20 @@ const useWindowInnerWidth = () => {
 	return innerWidth;
 }
 
+
+const useWindowScroll = () => {
+	const [xScroll, setXScroll] = useState(0);
+	const [yScroll, setYScroll] = useState(0);
+	window.addEventListener('scroll', () => {
+		setXScroll(window.pageXOffset);
+		setYScroll(window.pageYOffset);
+	});
+
+	return {xScroll, yScroll};
+};
+
 export {
 	useHeaderBackground,
 	useWindowInnerWidth,
+	useWindowScroll,
 };

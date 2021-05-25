@@ -1,4 +1,4 @@
-const navlinksData = [
+const navlinkData = [
 	{
 		to: '/',
 		content: 'Home',
@@ -12,7 +12,7 @@ const navlinksData = [
 	{
 		to: '/gallery',
 		content: 'Galeri',
-		exact: true
+		exact: false
 	},
 	{
 		to: '/citizen',
@@ -32,4 +32,4 @@ const navlinksData = [
 	
 ];
 
-export default navlinksData;
+export default navlinkData;

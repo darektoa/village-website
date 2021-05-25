@@ -8,6 +8,13 @@ const StringHelper = {
     });
     
     return result;
+  },
+
+
+  upperCaseFirst(value) {
+    if(!value.length && typeof(value) !== 'string') return '';
+
+    return value.charAt(0).toUpperCase() + value.slice(1);
   }
 };
 

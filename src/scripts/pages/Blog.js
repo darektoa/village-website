@@ -1,6 +1,6 @@
 import '../../styles/pages/Blog.css';
 import React from 'react';
-import articlesData from '../data/articles-data.js';
+import articleData from '../data/article-data.js';
 
 const Blog = (props) => {
   return (
@@ -15,10 +15,10 @@ const Blog = (props) => {
 
       <div className="latests-news container">
         <h3>Berita Terbaru</h3>
-        <Article data={articlesData[0]} className="latests" listedTags/>
+        <Article data={articleData[0]} className="latests" listedTags/>
         <Dates />
         <div className="articles">
-          <ArticleLoop data={articlesData.slice(1, 5)} />
+          <ArticleLoop data={articleData.slice(1, 5)} />
         </div>
       </div>
 
@@ -27,7 +27,7 @@ const Blog = (props) => {
           <h3>Semua Berita</h3>
           <button>Lihat Semua</button>
         </header>
-        <ArticleLoop data={articlesData.slice(5)} />
+        <ArticleLoop data={articleData.slice(5)} />
       </div>
     </section>
   );
