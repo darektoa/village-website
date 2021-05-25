@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL: 'http://desa-sii.herokuapp.com/api',
+  BASE_URL: 'https://desa-sii.herokuapp.com/api',
   VERSION: '1.0.'
 };
 
