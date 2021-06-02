@@ -24,8 +24,6 @@ const Contact = (props) => {
 
   return(
     <section id="contact-page" className="container">
-      <i className="icon_leaf-grey"></i>
-
       <div className="text-box">
         <h2>Kontak</h2>
         <p className="address">Leuwigajah, Cimahi Selatan, Cimahi, Jawa Barat 40532</p>
