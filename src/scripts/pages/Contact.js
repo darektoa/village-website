@@ -9,8 +9,8 @@ const Contact = (props) => {
     no_hp       : '021798365',
     start_day   : 'Monday',
     end_day     : 'Friday',
-    start_time  : '',
-    end_time    : '',
+    start_time  : '07:00',
+    end_time    : '17:00',
   });
 
   useLayoutEffect(() => {
@@ -29,7 +29,7 @@ const Contact = (props) => {
         <p className="address">Leuwigajah, Cimahi Selatan, Cimahi, Jawa Barat 40532</p>
         <p className="contact">Telepon : {data.no_hp},  {data.email}</p>
         <h3>Hari Kerja: {data.start_day} – {data.end_day}</h3>
-        <p>Waktu Kerja: 07.00 – 16.00 WIT</p>
+        <p>Waktu Kerja: {data.start_time} – {data.end_time} WIB</p>
       </div>
     </section>
   );

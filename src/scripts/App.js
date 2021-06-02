@@ -25,7 +25,6 @@ const App = () => {
 
 
 const Main = () => {
-  console.log(GeneralData.getAll());
   return(
     <main className="main">
       <Switch>
