@@ -9,7 +9,6 @@ import GalleryDetail from './pages/GalleryDetail.js';
 import Profile from './pages/Profile.js';
 import Contact from './pages/Contact.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import GeneralData from './data/GeneralData';
 
 const App = () => {
   return (
