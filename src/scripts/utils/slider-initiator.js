@@ -7,6 +7,8 @@ const SliderInitiator = {
     interval,
     nextButtonX, prevButtonX,
   }) {
+    if(!this._itemsValidation(items)) return;
+    
     const counterX = new Counter(0);
 
     this._initButton({
@@ -21,6 +23,12 @@ const SliderInitiator = {
       interval,
       counter: counterX,
     });
+  },
+
+
+  _itemsValidation(items) {
+    if(items.some(item => item === null) || items.length === 0) return false;
+    return true;
   },
 
 

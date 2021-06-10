@@ -1,31 +1,38 @@
 import '../../styles/pages/Profile.css';
-import { useLayoutEffect , useRef, createRef, forwardRef, useState } from 'react';
-import slideData from '../data/slider-data.js';
+import { useLayoutEffect, createRef, forwardRef, useState } from 'react';
 import SliderInititator from '../utils/slider-initiator.js';
 import GeneralData from '../data/GeneralData';
 
 const Profile = () => {
-  const slideImagesRef = useRef(slideData.map(() => createRef()));
+  const [slideImagesRef, setSlideImagesRef] = useState([]);
   const [data, setData] = useState({
     name: 'Village Website',
     description: '',
     address: '',
+    sliders: [],
   });
-  
+
+  useLayoutEffect(() => {
+    setSlideImagesRef(data.sliders.map(() => createRef()));
+  }, [data]);
+
   useLayoutEffect(() => {
     GeneralData.getAll()
-    .then(data => setData(data));
-
-    SliderInititator.init({
-      items: slideImagesRef.current.map(item => item.current),
-      interval: 3000,
-    });
+    .then(data => {
+      setData(data);
+      
+      SliderInititator.init({
+        items: slideImagesRef.map(item => item.current),
+        interval: 3000,
+      });
+    }, [data]);
   });
+
 
   return (
     <section id="profile-page">
       <div className="hero-box">
-        <SliderBox data={slideData} ref={slideImagesRef}></SliderBox>
+        <SliderBox data={data.sliders} ref={slideImagesRef}></SliderBox>
         <div className="darken-slider"></div>
         <div className="text-box container">
           <h2>{data.name}</h2>
@@ -56,9 +63,9 @@ const SliderBox = forwardRef((props, ref) => {
     <div className="slider-box">
       {props.data.map((item, index) => (
         <img 
-          src={item} 
+          src={item.imageUrl} 
           key={index}
-          ref={ref.current[index]} 
+          ref={ref[index]} 
           alt="Village Illustration"
           height="500"
         />

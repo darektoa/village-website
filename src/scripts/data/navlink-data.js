@@ -16,7 +16,7 @@ const navlinkData = [
 	},
 	{
 		to: '/citizen',
-		content: 'Info Penduduk',
+		content: 'Penduduk',
 		exact: true
 	},
 	{
@@ -26,7 +26,7 @@ const navlinkData = [
 	},
 	{
 		to: '/contact',
-		content: 'Kontak Kami',
+		content: 'Kontak',
 		exact: true
 	},
 	

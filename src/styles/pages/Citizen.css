@@ -1,0 +1,133 @@
+#citizen-page{
+  width: 100%;
+  max-width: 80rem;
+  height: auto;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*
+  INFO BOX
+*/
+#citizen-page > .info-box{
+  width: 100%;
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-auto-rows: max-content;
+  gap: 4rem;
+}
+
+#citizen-page > .info-box > .info-card{
+  width: 100%;
+  padding: 100% 3rem 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 1.5rem;
+}
+
+#citizen-page > .info-box > .info-card:nth-child(1){
+  background-image: linear-gradient(33.48deg, #79302B 12%, #B54C44 99.14%);
+}
+
+#citizen-page > .info-box > .info-card:nth-child(2){
+  background-image: linear-gradient(33.48deg, #79302B 11.84%, #B54C44 99.14%);
+}
+
+#citizen-page > .info-box > .info-card:nth-child(3){
+  background-image: linear-gradient(38.92deg, #B54C44 30.02%, #F36055 98.94%);
+}
+
+/* TEXT BOX */
+#citizen-page > .info-box > .info-card > .text-box{
+  position: absolute;
+  top: 3rem;
+}
+
+/* TOTAL */
+#citizen-page > .info-box > .info-card > .text-box > span{
+  margin-bottom: 1.5rem;
+  display: flex;
+  color: #FFF;
+  font-size: calc(var(--x-large) - 1rem);
+  font-weight: 600;
+}
+
+/* HEADING */
+#citizen-page > .info-box > .info-card > .text-box > h2{
+  max-width: 12rem;
+  color: #FFF;
+  font-size: var(--medium);
+  font-weight: 400;
+}
+
+/* ICON */
+#citizen-page > .info-box > .info-card > i{
+  --icon-size: 3.6rem;
+}
+
+
+
+@media (max-width: 800px) {
+  #citizen-page > .info-box > .info-card{
+    padding: 100% 2.5rem 2.5rem 2.5rem;
+  }
+
+  /* TEXT BOX */
+  #citizen-page > .info-box > .info-card > .text-box{
+    top: 2.5rem;
+  }
+
+  /* TOTAL */
+  #citizen-page > .info-box > .info-card > .text-box > span{
+    margin-bottom: 1rem;
+    font-size: calc(var(--x-large) - 2rem);
+  }
+
+  /* HEADING */
+  #citizen-page > .info-box > .info-card > .text-box > h2{
+    max-width: 80%;
+    font-size: var(--small);
+  }
+
+  /* ICON */
+  #citizen-page > .info-box > .info-card > i{
+    --icon-size: 2.6rem;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  /*
+    INFO BOX
+  */
+  #citizen-page > .info-box{
+    gap: 1.5rem;
+  }
+
+  #citizen-page > .info-box > .info-card{
+    padding: 100% 2rem 2rem 2rem;
+  }
+
+  /* TEXT BOX */
+  #citizen-page > .info-box > .info-card > .text-box{
+    top: 2rem;
+  }
+
+  /* TOTAL */
+  #citizen-page > .info-box > .info-card > .text-box > span{
+    font-size: var(--large);
+  }
+
+  /* HEADING */
+  #citizen-page > .info-box > .info-card > .text-box > h2{
+    font-size: var(--medium);
+  }
+}

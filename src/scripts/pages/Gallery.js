@@ -11,7 +11,6 @@ const Gallery = (props) => {
   useLayoutEffect(() => {
     GalleryData.getAll()
     .then(data => {
-      console.log(data);
       setData(data);
     });
   });

@@ -41,6 +41,10 @@
   overflow: hidden;
 }
 
+#gallery-page > .album-box > .album > h3{
+  text-align: center;
+}
+
 #gallery-page > .album-box > .album::after{
   content: "";
   width: 100%;
