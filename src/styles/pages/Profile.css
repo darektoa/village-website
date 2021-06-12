@@ -1,4 +1,6 @@
 #profile-page{
+  width: 100%;
+  height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -19,12 +21,25 @@
   position: relative;
 }
 
+/* DARKEN HERO SECTION */
+#profile-page > .hero-box::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 1;
+}
+
 /* HERO SLIDER BOX */
 #profile-page > .hero-box > .slider-box{
   width: 100%;
   height: 54rem;
   display: flex;
   overflow: hidden;
+  z-index: 0;
 }
 
 #profile-page > .hero-box > .slider-box > img{
@@ -34,17 +49,6 @@
   object-fit: cover;
 }
 
-/* DARKEN SLIDER */
-#profile-page > .hero-box > .darken-slider{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, .4);
-	z-index: 0;
-}
-
 /* TEXT BOX */
 #profile-page > .hero-box > .text-box{
   max-width: 60rem;
@@ -52,6 +56,7 @@
   flex-direction: column;
   position: absolute;
   color: #FFF;
+  z-index: 2;
 }
 
 #profile-page > .hero-box > .text-box > h2{

@@ -1,5 +1,5 @@
-import '../../styles/pages/Contact.css';
 import { useLayoutEffect, useState } from 'react';
+import '../../styles/pages/Contact.css';
 import StringHelper from '../utils/string-helper.js';
 import GeneralData from '../data/GeneralData.js';
 

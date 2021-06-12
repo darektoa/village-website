@@ -1,5 +1,6 @@
+import { useEffect, createRef, forwardRef, useState } from 'react';
 import '../../styles/pages/Profile.css';
-import { useLayoutEffect, createRef, forwardRef, useState } from 'react';
+import defaultImg from '../../assets/images/default_img.svg';
 import SliderInititator from '../utils/slider-initiator.js';
 import GeneralData from '../data/GeneralData';
 
@@ -12,11 +13,11 @@ const Profile = () => {
     sliders: [],
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setSlideImagesRef(data.sliders.map(() => createRef()));
   }, [data]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     GeneralData.getAll()
     .then(data => {
       setData(data);
@@ -25,15 +26,13 @@ const Profile = () => {
         items: slideImagesRef.map(item => item.current),
         interval: 3000,
       });
-    }, [data]);
+    });
   });
-
 
   return (
     <section id="profile-page">
       <div className="hero-box">
-        <SliderBox data={data.sliders} ref={slideImagesRef}></SliderBox>
-        <div className="darken-slider"></div>
+        <SliderBox data={data.sliders} ref={slideImagesRef}/>
         <div className="text-box container">
           <h2>{data.name}</h2>
           <p>{data.description}</p>
@@ -63,7 +62,7 @@ const SliderBox = forwardRef((props, ref) => {
     <div className="slider-box">
       {props.data.map((item, index) => (
         <img 
-          src={item.imageUrl} 
+          src={item.imageUrl || defaultImg} 
           key={index}
           ref={ref[index]} 
           alt="Village Illustration"

@@ -1,5 +1,5 @@
-import '../../styles/pages/Citizen.css';
 import React, { useEffect, useState } from 'react';
+import '../../styles/pages/Citizen.css';
 import CitizenData from '../data/CitizenData.js';
 
 const Citizen = () => {

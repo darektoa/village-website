@@ -1,5 +1,5 @@
-import '../../styles/pages/Home.css';
 import { useLayoutEffect, useState } from 'react';
+import '../../styles/pages/Home.css';
 import StringHelper from '../utils/string-helper.js'
 import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
 import hero_video from '../../assets/videos/home/hero_video.mp4';

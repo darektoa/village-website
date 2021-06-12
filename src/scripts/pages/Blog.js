@@ -1,5 +1,5 @@
-import '../../styles/pages/Blog.css';
 import React from 'react';
+import '../../styles/pages/Blog.css';
 import articleData from '../data/article-data.js';
 
 const Blog = (props) => {
