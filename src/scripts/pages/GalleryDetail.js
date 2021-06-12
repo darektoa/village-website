@@ -1,28 +1,28 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/pages/GalleryDetail.css';
 import GalleryData from '../data/GalleryData.js';
 
 
 const Gallery = (props) => {
+  const { idAlbum }     = useParams();
   const [data, setData] = useState({
     name: 'Title',
-    galleries: [],
+    galleries: ['', '', '', ''],
   });
-  const { galleries }   = data;
-  const params          = useParams();
-  const { idAlbum }     = params;
   
-  useLayoutEffect(() => {
+  useEffect(() => {
     GalleryData.getAlbum(idAlbum)
-    .then(data => setData(data))
-  });
+    .then(data => {
+      setData(data)
+    });
+  }, [idAlbum]);
 
   return(
     <section id="gallery-detail-page" className="container">
       <h2>{data.name}</h2>
       <div className="media-box">
-        <MediaLoop data={galleries} />
+        <MediaLoop data={data.galleries} />
       </div>
     </section>
   );
@@ -35,7 +35,7 @@ const MediaLoop = (props) => {
 
   return(
     <React.Fragment>
-      {data.map((item) => ImageMedia(item))}
+      {data.map((item, index) => <ImageMedia data={item} key={index}/>)}
     </React.Fragment>
   )
 };
@@ -52,11 +52,12 @@ const MediaLoop = (props) => {
 
 /* IMAGE ELEMENT */
 const ImageMedia = (props) => {
-  const { id, image } = props
+  const { image } = props.data;
+  const secureImage   = image?.replace('http://', 'https://');
 
   return(
-    <div className="media" key={id}>
-      <img src={image} alt="" />
+    <div className="media">
+      <img src={secureImage} alt="" />
     </div>
   );
 };

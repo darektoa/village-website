@@ -1,17 +1,18 @@
 import CONFIG from '../globals/config.js';
 
 const GalleryData = {
-  endpoint: `${CONFIG.BASE_URL}/album`,
-  savedAlbum: null,
+  endpoint        : `${CONFIG.BASE_URL}/album`,
+  savedGetAll     : null,
+
 
   async getAll() {
-    if (this.savedAlbum) return this.savedAlbum;
+    if (this.savedGetAll) return this.savedGetAll;
 
-    const options   = {}
-    const request   = new Request(this.endpoint, options);
-    const response  = await fetch(request);
-    const resJson   = await response.json();
-    this.savedAlbum = resJson.data;
+    const options     = {}
+    const request     = new Request(this.endpoint, options);
+    const response    = await fetch(request);
+    const resJson     = await response.json();
+    this.savedGetAll  = resJson.data;
 
     return resJson.data;
   },
@@ -19,29 +20,17 @@ const GalleryData = {
 
   async getAlbum(id) {
     const idAlbum = Number(id);
-    const fromSaved = this._getAlbumSaved(idAlbum);
+    const { savedGetAll } = this;
 
-    if(fromSaved) return fromSaved;
-
-    return this._getAlbumFetch(idAlbum);
-  },
-
-
-  async _getAlbumFetch(id) {
+    if(savedGetAll) savedGetAll.find((item) => item.id === idAlbum);
+    
     const options   = {};
-    const endpoint  = `${this.endpoint}/${id}`;
+    const endpoint  = `${this.endpoint}/${idAlbum}`;
     const request   = new Request(endpoint, options);
     const response  = await fetch(request);
     const resJson   = await response.json();
 
     return resJson.data
-  },
-
-
-  _getAlbumSaved(id) {
-    if (!this.savedAlbum) return null;
-
-    return this.savedAlbum.find((item) => item.id === id);
   },
 };
 

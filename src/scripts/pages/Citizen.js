@@ -1,45 +1,39 @@
 import '../../styles/pages/Citizen.css';
+import React, { useEffect, useState } from 'react';
+import CitizenData from '../data/CitizenData.js';
 
 const Citizen = () => {
+  const [data, setData] = useState(['', '', '']);
+
+  useEffect(() => {
+    CitizenData.getInfoCard()
+    .then(res => {
+      setData(res)
+    });
+  }, []);
+  
   return(
     <section id="citizen-page" className="container">
       <ul className="info-box">
-        <li className="info-card">
-          <div className="text-box">
-            <span>700</span>
-            <h2>Total Penduduk</h2>
-          </div>
-          <i className="icon_peoples-fff "></i>
-        </li>
-        <li className="info-card">
-          <div className="text-box">
-            <span>350</span>
-            <h2>Penduduk Laki-laki</h2>
-          </div>
-          <i className="icon_male-fff"></i>
-        </li>
-        <li className="info-card">
-          <div className="text-box">
-            <span>350</span>
-            <h2>Penduduk Perempuan</h2>
-          </div>
-          <i className="icon_female-fff"></i>
-        </li>
+        {data.map((item, index)=> <InfoCard data={item} key={index}/>)}
       </ul>
     </section>
   );
 }
 
 
-// const InfoCard = (props) => {
-//   const { total, heading, } = props;
+const InfoCard = (props) => {
+  const { total, heading, iconClassName} = props.data;
 
-//   return(
-//     <li className="info-card">
-//       <span>{total}</span>
-//       <h2>{heading}</h2>
-//     </li>
-//   );
-// };
+  return(
+    <li className="info-card">
+      <div className="text-box">
+        <span>{total}</span>
+        <h2>{heading}</h2>
+      </div>
+      <i className={iconClassName}></i>
+    </li>
+  );
+};
 
 export default Citizen;
