@@ -152,6 +152,7 @@
   font-size: var(--x-large);
   font-weight: 600;
   background-image: url("../../assets/images/date_bg.svg");
+  background-color: #C4C4C4;
   border-radius: 1.5rem;
 }
 
