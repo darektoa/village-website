@@ -4,7 +4,7 @@ import '../../styles/pages/GalleryDetail.css';
 import GalleryData from '../data/GalleryData.js';
 
 
-const Gallery = (props) => {
+const Gallery = (props) => {  
   const { idAlbum }     = useParams();
   const [data, setData] = useState({
     name: 'Title',
@@ -12,6 +12,7 @@ const Gallery = (props) => {
   });
   
   useEffect(() => {
+    window.scrollTo(0, 0);
     GalleryData.getAlbum(idAlbum)
     .then(data => {
       setData(data)
