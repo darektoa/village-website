@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../../styles/pages/Blog.css';
 import articleData from '../data/article-data.js';
 
@@ -36,19 +37,19 @@ const Blog = (props) => {
 
 /* TAGS ELEMENT */
 const Tags = (props) => {
-  const { tags, list } = props;
+  const { data, list } = props;
 
   if (list) {
     return(
       <ul className="tags">
-        { tags.map((tag, indx) => <li className="tag" key={indx}>{tag}</li>) }
+        { data.map((tag, indx) => <li className="tag" key={indx}>{tag}</li>) }
       </ul>
     );
   }
 
   return(
     <span className="tags">
-      { tags.join(' ') }
+      { data.join(' ') }
     </span>
   )
 };
@@ -56,20 +57,22 @@ const Tags = (props) => {
 
 /* ARTICLE ELEMENT */
 const Article = (props) => {
+  const { pathname } = useLocation();
   const { data, listedTags } = props;
-  const { thumbnail, tags, title } = data;
+  const { id, thumbnail, tags, title } = data;
   const list = listedTags === true ? true : false;
+  console.log(pathname);
 
   return(
-    <div className="article">
+    <Link className="article" to={`${pathname}/${id}`}>
       <div className="img-box">
         <img src={thumbnail} alt="" />
       </div>
       <div className="text-box">
-        <Tags tags={tags} list={list}/>
+        <Tags data={tags} list={list}/>
         <h4>{title}</h4>
       </div>
-    </div>
+    </Link>
   );
 };
 

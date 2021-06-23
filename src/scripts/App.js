@@ -4,6 +4,7 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Home from './pages/Home.js';
 import Blog from './pages/Blog.js';
+import BlogDetail from './pages/BlogDetail.js';
 import Citizen from './pages/Citizen.js';
 import Gallery from './pages/Gallery.js';
 import GalleryDetail from './pages/GalleryDetail.js';
@@ -30,7 +31,7 @@ const Main = () => {
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/blog" exact component={Blog}/>
-        <Route path="/blog/:idBlog" exact component={Blog}/>
+        <Route path="/blog/:idBlog" exact component={BlogDetail}/>
         <Route path="/citizen" exact component={Citizen} />
         <Route path="/gallery" exact component={Gallery} />
         <Route path="/gallery/:idAlbum" component={GalleryDetail} />
