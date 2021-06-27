@@ -58,7 +58,7 @@ const ImageMedia = (props) => {
 
   return(
     <div className="media">
-      <img src={secureImage} alt="" />
+      <img src={secureImage} alt=" " />
     </div>
   );
 };

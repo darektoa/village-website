@@ -12,7 +12,7 @@ const BlogDetail = () => {
         </div>
         
         <div className="img-box">
-          <img src={thumbnail_11} alt="" />
+          <img src={thumbnail_11} alt=" " />
         </div>
 
         <div className="text-box">

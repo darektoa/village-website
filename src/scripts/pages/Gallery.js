@@ -34,7 +34,7 @@ const Album = (props) => {
 
   return(
     <Link className="album" to={`${pathname}/${id}`}>
-      <img src={ secureThumbnail || defaultImg} alt="" />
+      <img src={ secureThumbnail || defaultImg} alt=" " />
       <h3>{name || 'Untitled'}</h3>
     </Link>
   );
