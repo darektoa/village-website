@@ -59,7 +59,7 @@ main{
 }
 
 img{
-  background-color: #CDCDCD;
+  /* background-color: #CDCDCD; */
 }
 
 body.hidden{
@@ -77,6 +77,30 @@ input:-webkit-autofill:focus{
   width: 100%;
   padding: 0 2rem;
   max-width: 1000px;
+}
+
+.box-loading{
+  position: relative;
+}
+
+.box-loading::before{
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 200%;
+  background-image: linear-gradient(75deg, #C4C4C4 15%, #DDD 30%, #C4C4C4 45%);
+  will-change: background-position-x;
+  animation: bg-loading 1.5s linear 0s infinite normal backwards running;
+  z-index: -1;
+}
+
+
+@keyframes bg-loading{
+  0%{ background-position-x: 45%; }
+  100%{ background-position-x: -145%; }
 }
 
 

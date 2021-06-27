@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/pages/Blog.css';
-import articleData from '../data/article-data.js';
+// import articleData from '../data/article-data.js';
+import StringHelper from '../utils/string-helper.js';
+import BlogData from '../data/BlogData';
 
 const Blog = (props) => {
+  const [data, setData] = useState(['', '', '', '', '']);
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingClassName = isLoading ? 'box-loading' : '';
+
+  useEffect(() => {
+    BlogData.getByPage()
+    .then((data) => {
+      console.log(data);
+      setData(data);
+      setIsLoading(false);
+    })
+  }, []);
+
   return (
     <section id="blog-page">
       <div className="title-box container">
@@ -16,10 +31,10 @@ const Blog = (props) => {
 
       <div className="latests-news container">
         <h3>Berita Terbaru</h3>
-        <Article data={articleData[0]} className="latests" listedTags/>
-        <Dates />
+        <Article data={data[0]} className={loadingClassName} listedTags />
+        <Dates className={loadingClassName} />
         <div className="articles">
-          <ArticleLoop data={articleData.slice(1, 5)} />
+          <ArticleLoop data={data.slice(1, 5)} className={loadingClassName} />
         </div>
       </div>
 
@@ -28,7 +43,7 @@ const Blog = (props) => {
           <h3>Semua Berita</h3>
           <button>Lihat Semua</button>
         </header>
-        <ArticleLoop data={articleData.slice(5)} />
+        <ArticleLoop data={data} className={loadingClassName} />
       </div>
     </section>
   );
@@ -37,18 +52,20 @@ const Blog = (props) => {
 
 /* TAGS ELEMENT */
 const Tags = (props) => {
-  const { data, list } = props;
-
+  const { data, list, className } = props;
+  const tagClassName = StringHelper.join(' ', 'tag', className);
+  const tagsClassName = StringHelper.join(' ', 'tags', className);
+  
   if (list) {
     return(
       <ul className="tags">
-        { data.map((tag, indx) => <li className="tag" key={indx}>{tag}</li>) }
+        { data.map((tag, indx) => <li className={tagClassName} key={indx}>{tag}</li>) }
       </ul>
     );
   }
 
   return(
-    <span className="tags">
+    <span className={tagsClassName}>
       { data.join(' ') }
     </span>
   )
@@ -58,19 +75,20 @@ const Tags = (props) => {
 /* ARTICLE ELEMENT */
 const Article = (props) => {
   const { pathname } = useLocation();
-  const { data, listedTags } = props;
-  const { id, thumbnail, tags, title } = data;
+  const { data, listedTags, className='' } = props;
+  const { id, thumbnail, tags=[], title } = data;
+  const tagData = tags.map(item => StringHelper.tag(item.slug));
   const list = listedTags === true ? true : false;
-  console.log(pathname);
-
+  const imgBoxClassName = StringHelper.join(' ', 'img-box', className);
+  
   return(
     <Link className="article" to={`${pathname}/${id}`}>
-      <div className="img-box">
+      <div className={imgBoxClassName}>
         <img src={thumbnail} alt="" />
       </div>
       <div className="text-box">
-        <Tags data={tags} list={list}/>
-        <h4>{title}</h4>
+        <Tags data={tagData} list={list} className={className}/>
+        <h4 className={className}>{title}</h4>
       </div>
     </Link>
   );
@@ -78,7 +96,9 @@ const Article = (props) => {
 
 
 /* DATE ELEMENT */
-const Dates = () => {
+const Dates = (props) => {
+  const { className='' } = props;
+  const dateClassName = StringHelper.join(' ', 'date', className);
   const date = new Date();
   const months = ['Januari','Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
   const day = date.getDate();
@@ -86,7 +106,7 @@ const Dates = () => {
   const year = date.getFullYear();
 
   return (
-    <div className="date">
+    <div className={dateClassName}>
       {month} {day}, {year}
     </div>
   );
@@ -95,9 +115,9 @@ const Dates = () => {
 
 /* LOOPING ARTICLE ELEMENT */
 const ArticleLoop = (props) => {
-  const { data, listedTags } = props;
+  const { data, listedTags, className } = props;
   const articles = data.map((item, index) => (
-    <Article data={item} key={index} listedTags={listedTags}/>
+    <Article data={item} key={index} listedTags={listedTags} className={className} />
   ));
 
   return(
