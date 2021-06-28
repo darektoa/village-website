@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/pages/GalleryDetail.css';
+import defaultImg from '../../assets/images/transparent.svg';
+import StringHelper from '../utils/string-helper';
 import GalleryData from '../data/GalleryData.js';
 
 
 const Gallery = (props) => {  
   const { idAlbum }     = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingClassName = isLoading ? 'box-loading' : '';
   const [data, setData] = useState({
     name: 'Title',
     galleries: ['', '', '', ''],
@@ -16,6 +20,7 @@ const Gallery = (props) => {
     GalleryData.getAlbum(idAlbum)
     .then(data => {
       setData(data)
+      setIsLoading(false);
     });
   }, [idAlbum]);
 
@@ -23,7 +28,7 @@ const Gallery = (props) => {
     <section id="gallery-detail-page" className="container">
       <h2>{data.name}</h2>
       <div className="media-box">
-        <MediaLoop data={data.galleries} />
+        <MediaLoop data={data.galleries} className={loadingClassName} />
       </div>
     </section>
   );
@@ -32,11 +37,11 @@ const Gallery = (props) => {
 
 /* LOOPING MEDIA ELEMENT */
 const MediaLoop = (props) => {
-  const { data } = props;
+  const { data, className } = props;
 
   return(
     <React.Fragment>
-      {data.map((item, index) => <ImageMedia data={item} key={index}/>)}
+      {data.map((item, index) => <ImageMedia data={item} key={index} className={className} />)}
     </React.Fragment>
   )
 };
@@ -53,12 +58,14 @@ const MediaLoop = (props) => {
 
 /* IMAGE ELEMENT */
 const ImageMedia = (props) => {
-  const { image } = props.data;
+  const { data, className='' } = props;
+  const { image } = data;
   const secureImage   = image?.replace('http://', 'https://');
+  const mediaClassName = StringHelper.join(' ', 'media', className);
 
   return(
-    <div className="media">
-      <img src={secureImage} alt=" " />
+    <div className={mediaClassName}>
+      <img src={secureImage || defaultImg } alt=" " />
     </div>
   );
 };

@@ -7,34 +7,6 @@
   overflow: hidden;
 }
 
-/*
-  LOADING ANIMATION STYLE
-*/
-.article > .text-box > .tags.box-loading{
-  min-width: 2rem;
-  max-width: 20rem;
-  min-height: 2rem;
-  display: inline-block;
-}
-
-.article > .text-box > .tags.box-loading::before{
-  border-radius: 0.5rem;
-}
-
-.article > .text-box > h4.box-loading{
-  min-width: 2rem;
-  min-height: 2rem;
-  display: inline-block;
-}
-
-.article > .text-box > h4.box-loading::before{
-  border-radius: 0.5rem;
-}
-
-.date.box-loading::before{
-  border-radius: inherit;
-}
-
 
 /*
   TITLE BOX
@@ -349,6 +321,35 @@
   font-size: var(--small);
   line-height: 1.25;
   overflow: hidden;
+}
+
+
+/*
+  LOADING ANIMATION STYLE
+*/
+.article > .text-box > .tags.box-loading{
+  min-width: 2rem;
+  max-width: 20rem;
+  min-height: 2rem;
+  display: inline-block;
+}
+
+.article > .text-box > .tags.box-loading::before{
+  border-radius: 0.5rem;
+}
+
+.article > .text-box > h4.box-loading{
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-block;
+}
+
+.article > .text-box > h4.box-loading::before{
+  border-radius: 0.5rem;
+}
+
+.date.box-loading::before{
+  border-radius: inherit;
 }
 
 

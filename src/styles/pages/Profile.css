@@ -116,6 +116,14 @@
 }
 
 
+/*
+  LOADING ANIMATION STYLE
+*/
+#profile-page > .hero-box.box-loading::after{
+  background-color: transparent;
+}
+
+
 
 @media (max-width: 600px) {
 	/*

@@ -4,7 +4,10 @@
   align-items: center;
 }
 
-/* HEADING 2 */
+
+/*
+  HEADING 2
+*/
 #gallery-page > h2{
   width: 100%;
   max-width: 67rem;
@@ -39,10 +42,6 @@
   border-radius: 1.5rem;
   box-shadow: .2rem .4rem 2rem 0 #919191;
   overflow: hidden;
-}
-
-#gallery-page > .album-box > .album > h3{
-  text-align: center;
 }
 
 #gallery-page > .album-box > .album::after{
@@ -83,8 +82,21 @@
   left: 50%;
   color: #FFF;
   font-size: var(--medium);
+  text-align: center;
   transform: translate(-50%, -50%);
   z-index: 3;
+}
+
+
+/*
+  LOADING ANIMATION STYLE
+*/
+#gallery-page > .album-box > .album.box-loading::after{
+  background-color: transparent;
+}
+
+#gallery-page > .album-box > .album.box-loading > h3{
+  color: transparent;
 }
 
 

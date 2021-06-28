@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/pages/Blog.css';
 // import articleData from '../data/article-data.js';
+import defaultImg from '../../assets/images/transparent.svg';
 import StringHelper from '../utils/string-helper.js';
 import BlogData from '../data/BlogData';
 
@@ -84,7 +85,7 @@ const Article = (props) => {
   return(
     <Link className="article" to={`${pathname}/${id}`}>
       <div className={imgBoxClassName}>
-        <img src={thumbnail} alt=" " />
+        <img src={thumbnail || defaultImg } alt=" " />
       </div>
       <div className="text-box">
         <Tags data={tagData} list={list} className={className}/>

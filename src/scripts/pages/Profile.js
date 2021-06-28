@@ -2,10 +2,14 @@ import { useEffect, createRef, forwardRef, useState } from 'react';
 import '../../styles/pages/Profile.css';
 import defaultImg from '../../assets/images/default_img.svg';
 import SliderInititator from '../utils/slider-initiator.js';
+import StringHelper from '../utils/string-helper';
 import GeneralData from '../data/GeneralData';
 
 const Profile = () => {
   const [slideImagesRef, setSlideImagesRef] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingClassName = isLoading ? 'box-loading' : '';
+  const heroBoxClassName = StringHelper.join(' ', 'hero-box', loadingClassName);
   const [data, setData] = useState({
     name: 'Village Website',
     description: '',
@@ -18,21 +22,25 @@ const Profile = () => {
   }, [data]);
 
   useEffect(() => {
+    console.log('init');
+    SliderInititator.init({
+      items: slideImagesRef.map(item => item.current),
+      interval: 3000,
+    });
+  }, [slideImagesRef]);
+
+  useEffect(() => {
     GeneralData.getAll()
     .then(data => {
       setData(data);
-      
-      SliderInititator.init({
-        items: slideImagesRef.map(item => item.current),
-        interval: 3000,
-      });
+      setIsLoading(false);
     });
   });
 
   return (
     <section id="profile-page">
-      <div className="hero-box">
-        <SliderBox data={data.sliders} ref={slideImagesRef}/>
+      <div className={heroBoxClassName}>
+        <SliderBox data={data.sliders} ref={slideImagesRef} />
         <div className="text-box container">
           <h2>{data.name}</h2>
           <p>{data.description}</p>
@@ -58,9 +66,12 @@ const Profile = () => {
 };
 
 const SliderBox = forwardRef((props, ref) => {
+  const {data, className} = props;
+  const sliderBoxClassName = StringHelper.join(' ', 'slider-box', className);
+
   return (
-    <div className="slider-box">
-      {props.data.map((item, index) => (
+    <div className={sliderBoxClassName}>
+      {data.map((item, index) => (
         <img 
           src={item.imageUrl || defaultImg} 
           key={index}
