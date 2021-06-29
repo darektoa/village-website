@@ -1,33 +1,75 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import '../../styles/pages/BlogDetail.css';
-import thumbnail_11 from '../../assets/images/blog/thumbnail_11.png';
+import BlogData from '../data/BlogData';
+import StringHelper from '../utils/string-helper';
+import defaultImg from '../../assets/images/transparent.svg';
 
 const BlogDetail = () => {
+  const { idBlog } = useParams();
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingClassName = isLoading ? 'box-loading' : '';
+
+  useEffect(() => {
+    BlogData.getById(idBlog)
+    .then(data => {
+      console.log(data);
+      setData(data);
+      setIsLoading(false);
+    })
+  }, [idBlog]);
+
   return(
     <section id="blog-detail-page">
       <div className="container">
-        <div className="title-box">
-          <span className="published">Published April 13, 2021</span>
-          <h2>Start A Blog To Reach Your Creative Peak</h2>
-          <Tags data={['#Tag-One', '#Tag-Two', '#Tag-Three']} />
-        </div>
-        
-        <div className="img-box">
-          <img src={thumbnail_11} alt=" " />
-        </div>
-
-        <div className="text-box">
-          <p>Id cursus metus aliquam eleifend mi in nulla posuere. Ipsum faucibus vitae aliquet nec ullamcorper sit. Amet purus gravida quis blandit turpis cursus in hac. Posuere urna nec tincidunt praesent semper feugiat nibh. Sollicitudin ac orci phasellus egestas tellus. Quis blandit turpis cursus in hac. In hendrerit gravida rutrum quisque. Pellentesque habitant morbi tristique senectus et.</p>
-          <p>Proin libero nunc consequat interdum varius sit amet mattis. Porttitor massa id neque aliquam. In fermentum posuere urna nec. Rhoncus aenean vel elit scelerisque mauris pellentesque. Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Consequat id porta nibh venenatis cras sed. Eu nisl nunc mi ipsum faucibus vitae.</p>
-          <h1>Heading 1</h1>
-          <p>Proin libero nunc consequat interdum varius sit amet mattis. Porttitor massa id neque aliquam. In fermentum posuere urna nec. Rhoncus aenean vel elit scelerisque mauris pellentesque. Nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi. Consequat id porta nibh venenatis cras sed. Eu nisl nunc mi ipsum faucibus vitae.</p>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Heading 6</h6>
-        </div>
+        <TitleBox data={data} />
+        <ImgBox data={data} className={loadingClassName} />
+        <TextBox data={data} className={loadingClassName} />
       </div>
     </section>
+  );
+};
+
+
+/* TITLE BOX ELEMENT */
+const TitleBox = (props) => {
+  const { data } = props;
+  const { tags=[] } = data;
+  const tagData = tags.map(item => StringHelper.tag(item.slug));
+
+  return(
+    <div className="title-box">
+      <span className="published">Published April 13, 2021</span>
+      <h2>{data.title}</h2>
+      <Tags data={tagData} />
+    </div>
+  );
+};
+
+
+/* IMG BOX ELEMENT */
+const ImgBox = (props) => {
+  const { data, className='' } = props;
+  const imgBoxClassName = StringHelper.join(' ', 'img-box', className);
+
+  return(
+    <div className={imgBoxClassName}>
+      <img src={data.thumbnail || defaultImg} alt=" " />
+    </div>
+  );
+};
+
+
+/* TEXT BOX ELEMENT */
+const TextBox = (props) => {
+  const { data, className='' } = props;
+  const textBoxClassName = StringHelper.join(' ', 'text-box', className);
+
+  return(
+    <div className={textBoxClassName}>
+      {data.description}
+    </div>
   );
 };
 

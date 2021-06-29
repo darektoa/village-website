@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-#blog-page img{
+.article img{
   background-color: #C4C4C4;
 }
 
@@ -331,6 +331,10 @@
 /*
   LOADING ANIMATION STYLE
 */
+.article > .img-box.box-loading > img{
+  background-color: unset;
+}
+
 .article > .text-box > .tags.box-loading{
   min-width: 2rem;
   max-width: 20rem;

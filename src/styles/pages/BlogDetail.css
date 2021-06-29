@@ -91,3 +91,13 @@
 #blog-detail-page .text-box > p{
   margin-bottom: 2rem;
 }
+
+
+/*
+  LOADING ANIMATION STYLE
+*/
+#blog-detail-page .text-box.box-loading{
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 0.5rem;
+}
