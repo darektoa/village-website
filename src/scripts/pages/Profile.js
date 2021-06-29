@@ -22,7 +22,6 @@ const Profile = () => {
   }, [data]);
 
   useEffect(() => {
-    console.log('init');
     SliderInititator.init({
       items: slideImagesRef.map(item => item.current),
       interval: 3000,

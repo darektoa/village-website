@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/pages/Blog.css';
 // import articleData from '../data/article-data.js';
 import defaultImg from '../../assets/images/transparent.svg';
 import StringHelper from '../utils/string-helper.js';
+import ElementHelper from '../utils/element-helper';
 import BlogData from '../data/BlogData';
 
 const Blog = (props) => {
@@ -81,11 +82,22 @@ const Article = (props) => {
   const tagData = tags.map(item => StringHelper.tag(item.slug));
   const list = listedTags === true ? true : false;
   const imgBoxClassName = StringHelper.join(' ', 'img-box', className);
+  const imgRef = createRef();
   
+  useEffect(() => {
+    const imgElmnt = imgRef.current;
+    const successHandler = () => {};
+    const errorHandler = () => imgElmnt.src = defaultImg;
+
+    ElementHelper.load(imgElmnt)
+    .then(successHandler)
+    .catch(errorHandler)
+  }, [imgRef]);
+
   return(
     <Link className="article" to={`${pathname}/${id}`}>
       <div className={imgBoxClassName}>
-        <img src={thumbnail || defaultImg } alt=" " />
+        <img src={thumbnail} alt=" " ref={imgRef} />
       </div>
       <div className="text-box">
         <Tags data={tagData} list={list} className={className}/>
