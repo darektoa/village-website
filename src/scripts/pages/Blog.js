@@ -97,7 +97,7 @@ const Article = (props) => {
   return(
     <Link className="article" to={`${pathname}/${id}`}>
       <div className={imgBoxClassName}>
-        <img src={thumbnail} alt=" " ref={imgRef} />
+        <img src={thumbnail || defaultImg} alt=" " ref={imgRef} />
       </div>
       <div className="text-box">
         <Tags data={tagData} list={list} className={className}/>
