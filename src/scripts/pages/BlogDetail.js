@@ -12,6 +12,7 @@ const BlogDetail = () => {
   const loadingClassName = isLoading ? 'box-loading' : '';
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     BlogData.getById(idBlog)
     .then(data => {
       console.log(data);
@@ -23,7 +24,7 @@ const BlogDetail = () => {
   return(
     <section id="blog-detail-page">
       <div className="container">
-        <TitleBox data={data} />
+        <TitleBox data={data} className={loadingClassName} />
         <ImgBox data={data} className={loadingClassName} />
         <TextBox data={data} className={loadingClassName} />
       </div>
@@ -34,15 +35,15 @@ const BlogDetail = () => {
 
 /* TITLE BOX ELEMENT */
 const TitleBox = (props) => {
-  const { data } = props;
+  const { data, className } = props;
   const { tags=[] } = data;
   const tagData = tags.map(item => StringHelper.tag(item.slug));
 
   return(
     <div className="title-box">
       <span className="published">Published April 13, 2021</span>
-      <h2>{data.title}</h2>
-      <Tags data={tagData} />
+      <h2 className={className}>{data.title}</h2>
+      <Tags data={tagData} className={className}/>
     </div>
   );
 };
@@ -76,18 +77,20 @@ const TextBox = (props) => {
 
 /* TAGS ELEMENT */
 const Tags = (props) => {
-  const { data, list } = props;
+  const { data, list, className='' } = props;
+  const tagClassName = StringHelper.join(' ', 'tag', className);
+  const tagsClassName = StringHelper.join(' ', 'tags', className);
 
   if (list) {
     return(
       <ul className="tags">
-        { data.map((tag, indx) => <li className="tag" key={indx}>{tag}</li>) }
+        { data.map((tag, indx) => <li className={tagClassName} key={indx}>{tag}</li>) }
       </ul>
     );
   }
 
   return(
-    <span className="tags">
+    <span className={tagsClassName}>
       { data.join(' ') }
     </span>
   )
