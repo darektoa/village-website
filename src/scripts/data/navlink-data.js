@@ -12,7 +12,7 @@ const navlinkData = [
 	{
 		to: '/gallery',
 		content: 'Galeri',
-		exact: false
+		exact: true
 	},
 	{
 		to: '/citizen',
