@@ -13,7 +13,7 @@ const Blog = (props) => {
   const loadingClassName = isLoading ? 'box-loading' : '';
 
   useEffect(() => {
-    BlogData.getByPage(2)
+    BlogData.getByPage(1)
     .then((data) => {
       console.log(data);
       setData(data);
@@ -25,7 +25,7 @@ const Blog = (props) => {
     <section id="blog-page">
       <div className="title-box container">
         <span>OUR BLOG</span>
-        <h2>Lorem Ipsum Lorem Ipsum Dolor</h2>
+        <h2>Blog Adalah Sumber Informasi Kami</h2>
 
         <i className="icon_memphis-1"></i>
         <i className="icon_memphis-2"></i>

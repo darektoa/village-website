@@ -24,7 +24,7 @@ const Gallery = (props) => {
       <h2>Imajinasi Adalah Sumber Kreativitas, Hargailah Walau Terkesan Aneh</h2>
       <div className="album-box">
         {data.map((item, index) => <Album data={item} key={index} className={loadingClassName} /> )}
-      </div>
+      </div>  
     </section>
   );
 };

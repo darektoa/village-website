@@ -36,12 +36,17 @@ const BlogDetail = () => {
 /* TITLE BOX ELEMENT */
 const TitleBox = (props) => {
   const { data, className } = props;
-  const { tags=[] } = data;
+  const { tags=[], created_at } = data;
   const tagData = tags.map(item => StringHelper.tag(item.slug));
+  const publishedDate = new Date(created_at).toLocaleDateString('id-ID', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 
   return(
     <div className="title-box">
-      <span className="published">Published April 13, 2021</span>
+      <span className="published">Published at {publishedDate}</span>
       <h2 className={className}>{data.title}</h2>
       <Tags data={tagData} className={className}/>
     </div>
