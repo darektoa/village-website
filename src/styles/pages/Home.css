@@ -61,6 +61,78 @@
 
 
 /*
+  CITIZEN SECTION
+*/
+#home-page > .citizen-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TEXT BOX */
+#home-page > .citizen-box > .text-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-page > .citizen-box > .text-box > h2{
+  margin: 5rem 0 5rem;
+  color: var(--main-accent-color);
+  font-size: var(--x-large);
+  text-align: center;
+}
+
+#home-page > .citizen-box > .text-box > p{
+  margin-bottom: 3rem;
+  font-size: var(--small);
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* CITIZEN STATISTICS */
+#home-page > .citizen-box > .citizen-statistics{
+  width: 100%;
+  padding: 3rem 8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  background-color: #F9F8F4;
+  border: .4rem dashed var(--main-accent-color);
+  border-spacing: 2rem;
+  border-radius: 5rem;
+  box-shadow: 1.2rem 2rem 4rem 0 rgba(0, 0, 0, .1);
+}
+
+#home-page > .citizen-box > .citizen-statistics > .data{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-page > .citizen-box > .citizen-statistics > .data > .text-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--small);
+}
+
+#home-page > .citizen-box > .citizen-statistics > .data > .text-box > h3{
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+}
+
+#home-page > .citizen-box > .citizen-statistics > .data > .text-box > .total{
+  margin-bottom: 1.5rem;
+  font-size: var(--x-large);
+  font-weight: bold;
+}
+
+
+/*
   CONTENT SECTION
 */
 #home-page > .content-box{

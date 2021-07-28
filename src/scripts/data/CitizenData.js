@@ -29,7 +29,7 @@ const CitizenData = {
   },
 
 
-  async getInfoCard() {
+  async getStatistics() {
     const getTotalData  = await this.getTotal();
     const response      = [
       {

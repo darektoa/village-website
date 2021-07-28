@@ -15,11 +15,6 @@ const navlinkData = [
 		exact: true
 	},
 	{
-		to: '/citizen',
-		content: 'Penduduk',
-		exact: true
-	},
-	{
 		to: '/profile',
 		content: 'Profile',
 		exact: true
