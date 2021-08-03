@@ -89,10 +89,14 @@ const CitizenStatistics = (props) => {
 
 
 const CitizenInfo = (props) => {
-  const { heading, total, unit } = props.data;
+  const { heading, total, unit, iconClassName } = props.data;
 
   return (
     <div className="data">
+      <div className="icon-box">
+        <i className={iconClassName}></i>
+      </div>
+      
       <div className="text-box">
         <h3>{heading}</h3>
         <span className="total">{total}</span>

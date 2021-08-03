@@ -113,6 +113,21 @@
   background-position-y: calc(var(--icon-size) * -1 * 2);
 }
 
+.icon_peoples-343434{
+  background-position-x: calc(var(--icon-size) * -1 * 0);
+  background-position-y: calc(var(--icon-size) * -1 * 3);
+}
+
+.icon_male-343434{
+  background-position-x: calc(var(--icon-size) * -1 * 1);
+  background-position-y: calc(var(--icon-size) * -1 * 3);
+}
+
+.icon_female-343434{
+  background-position-x: calc(var(--icon-size) * -1 * 2);
+  background-position-y: calc(var(--icon-size) * -1 * 3);
+}
+
 
 /*
   ICONS ACCESSORIES

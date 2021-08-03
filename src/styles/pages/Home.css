@@ -92,12 +92,16 @@
   line-height: 1.25;
 }
 
-/* CITIZEN STATISTICS */
+
+/* 
+  CITIZEN STATISTICS SECTION
+*/
 #home-page > .citizen-box > .citizen-statistics{
   width: 100%;
-  padding: 3rem 8rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  padding: 3rem 8rem 0  8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: #F9F8F4;
   border: .4rem dashed var(--main-accent-color);
   border-spacing: 2rem;
@@ -106,17 +110,31 @@
 }
 
 #home-page > .citizen-box > .citizen-statistics > .data{
-  width: 100%;
+  width: auto;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
+/* ICON BOX */
+#home-page > .citizen-box > .citizen-statistics > .data > .icon-box{
+  --icon-size: 2.4rem;
+  width: auto;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: #E4E0D5;
+  border-radius: 50%;
+}
+
+/* TEXT BOX */
 #home-page > .citizen-box > .citizen-statistics > .data > .text-box{
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  color: #343434;
   font-size: var(--small);
 }
 
@@ -228,6 +246,14 @@
 
 @media (max-width: 1000px) {
   /*
+    CITIZEN STATISTICS SECTION
+  */
+  #home-page > .citizen-box > .citizen-statistics{
+    padding: 3rem 5rem 0 5rem;
+  }
+
+
+  /*
     CONTENT SECTION
   */
   #home-page > .content-box > .text-box > h2{
@@ -267,6 +293,29 @@
 
 
 
+@media (max-width: 800px) {
+  /*
+    CITIZEN STATISTICS SECTION
+  */
+  #home-page > .citizen-box > .citizen-statistics{
+    padding: 3rem 2rem 0 2rem;
+  }
+  
+  #home-page > .citizen-box > .citizen-statistics > .data{
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* ICON BOX */
+  #home-page > .citizen-box > .citizen-statistics > .data > .icon-box{
+    margin-bottom: unset;
+    margin-right: 1rem;
+  }
+}
+
+
+
 @media (max-width: 600px) {
   /*
     CONTENT SECTION
@@ -280,6 +329,22 @@
   #home-page > .content-box > .img-box > img{
     width: 17rem;
     height: 21rem;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+  /*
+    CITIZEN STATISTICS SECTION
+  */
+  #home-page > .citizen-box > .citizen-statistics{
+    justify-content: center;
+  }
+
+  #home-page > .citizen-box > .citizen-statistics > .data{
+    width: 100%;
+    max-width: 30rem;
   }
 }
 

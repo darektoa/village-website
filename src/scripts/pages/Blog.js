@@ -13,7 +13,7 @@ const Blog = (props) => {
   const loadingClassName = isLoading ? 'box-loading' : '';
 
   useEffect(() => {
-    BlogData.getByPage(1)
+    BlogData.getByPage(2)
     .then((data) => {
       console.log(data);
       setData(data);

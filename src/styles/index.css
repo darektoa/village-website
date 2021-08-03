@@ -58,10 +58,6 @@ main{
   align-items: center;
 }
 
-img{
-  /* background-color: #CDCDCD; */
-}
-
 body.hidden{
   overflow: hidden;
 }

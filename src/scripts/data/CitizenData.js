@@ -35,15 +35,15 @@ const CitizenData = {
       {
         heading: 'Total Penduduk',
         total: getTotalData.total,
-        iconClassName: 'icon_peoples-fff',
+        iconClassName: 'icon_peoples-343434',
       }, {
         heading: 'Penduduk Laki-laki',
         total: getTotalData.male,
-        iconClassName: 'icon_male-fff',
+        iconClassName: 'icon_male-343434',
       }, {
         heading: 'Penduduk Perempuan',
         total: getTotalData.female,
-        iconClassName: 'icon_female-fff',
+        iconClassName: 'icon_female-343434',
       }
     ];
 
