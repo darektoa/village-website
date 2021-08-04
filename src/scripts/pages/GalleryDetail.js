@@ -26,7 +26,11 @@ const Gallery = (props) => {
 
   return(
     <section id="gallery-detail-page" className="container">
-      <h2>{data.name}</h2>
+      <div className="title-box">
+        <button className="back" onClick={()=>window.history.back()}> ← </button>
+        <h2>{data.name}</h2>
+      </div>
+
       <div className="media-box">
         <MediaLoop data={data.galleries} className={loadingClassName} />
       </div>

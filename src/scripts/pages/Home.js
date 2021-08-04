@@ -34,7 +34,7 @@ const Home = (props) => {
             poster={thumbnail_1}
             muted={heroMuted}
             autoPlay
-            preload="true"
+            preload="metadata"
             loop
           ></video>
           <div className={iconVolumeClassName}>
@@ -96,7 +96,7 @@ const CitizenInfo = (props) => {
       <div className="icon-box">
         <i className={iconClassName}></i>
       </div>
-      
+
       <div className="text-box">
         <h3>{heading}</h3>
         <span className="total">{total}</span>

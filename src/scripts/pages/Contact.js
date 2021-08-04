@@ -30,6 +30,9 @@ const Contact = (props) => {
         <p className="contact">Telepon : {data.no_hp},  {data.email}</p>
         <h3>Hari Kerja: {data.start_day} – {data.end_day}</h3>
         <p>Waktu Kerja: {data.start_time} – {data.end_time} WIB</p>
+        <a href="https://pengaduan.solusi.vip" target="_blank" rel="noopener noreferrer">
+          Klik di sini untuk ajukan pengaduan
+        </a>
       </div>
     </section>
   );

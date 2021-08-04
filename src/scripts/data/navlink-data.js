@@ -20,6 +20,12 @@ const navlinkData = [
 		exact: true
 	},
 	{
+		to: 'https://store.cireundeu.solusi.vip',
+		content: 'Store',
+		target: '_blank',
+		external: true
+	},
+	{
 		to: '/contact',
 		content: 'Kontak',
 		exact: true

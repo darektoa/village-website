@@ -58,13 +58,36 @@ const NavLinkLoop = (props) => {
   const { data } = props;
   const navlinks = data.map((item, index) => (
     <li key={index}>
-      <NavLink className="link" to={item.to} exact={item.exact}>
-        {item.content}
-      </NavLink>
+      {item.external ? <ExternalLink data={item}/> : <InternalLink data={item}/>}
     </li>
   ));
 
   return <ul>{navlinks}</ul>;
 };
+
+
+const InternalLink = (props) => {
+  const { data } = props;
+
+  return (
+    <NavLink className="link" to={data.to} exact={data.exact}>
+      {data.content}
+    </NavLink>
+  );
+}
+
+
+const ExternalLink = (props) => {
+  const { data } = props;
+
+  return (
+    <a className="link" 
+      href={data.to} 
+      target={data.target || "_self"} 
+      rel="noopener noreferrer">
+      {data.content}
+    </a>
+  )
+}
 
 export default Header;

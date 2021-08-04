@@ -46,6 +46,7 @@ const TitleBox = (props) => {
 
   return(
     <div className="title-box">
+      <button className="back" onClick={()=>window.history.back()}> ← </button>
       <span className="published">Published at {publishedDate}</span>
       <h2 className={className}>{data.title}</h2>
       <Tags data={tagData} className={className}/>
