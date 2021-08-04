@@ -15,7 +15,6 @@ const BlogDetail = () => {
     window.scrollTo(0, 0);
     BlogData.getById(idBlog)
     .then(data => {
-      console.log(data);
       setData(data);
       setIsLoading(false);
     })

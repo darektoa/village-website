@@ -23,8 +23,6 @@ const Home = (props) => {
     .then(data => setCitizenData(data));
   }, []);
 
-  console.log(generalData, citizenData);
-
   return (
     <section id="home-page">
       <div className="hero-box container">
@@ -80,8 +78,8 @@ const CitizenStatistics = (props) => {
 
   return (
     <div className="citizen-statistics">
-      {data.map(item => (
-        <CitizenInfo data={{...item, unit: 'Orang'}} />
+      {data.map((item, index) => (
+        <CitizenInfo data={{...item, unit: 'Orang'}} key={index} />
       ))}
     </div>
   );

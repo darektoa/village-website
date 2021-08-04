@@ -15,7 +15,6 @@ const Blog = (props) => {
   useEffect(() => {
     BlogData.getByPage(2)
     .then((data) => {
-      console.log(data);
       setData(data);
       setIsLoading(false);
     })
