@@ -26,6 +26,12 @@ const navlinkData = [
 		external: true
 	},
 	{
+		to: 'https://pengaduan.solusi.vip',
+		content: 'Aduan',
+		target: '_blank',
+		external: true
+	},
+	{
 		to: '/contact',
 		content: 'Kontak',
 		exact: true

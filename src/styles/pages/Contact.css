@@ -41,8 +41,7 @@
   text-align: center;
 }
 
-#contact-page > .text-box > p,
-#contact-page > .text-box > a{
+#contact-page > .text-box > p{
   margin-bottom: 1.6rem;
   font-size: var(--small);
   text-align: center;
