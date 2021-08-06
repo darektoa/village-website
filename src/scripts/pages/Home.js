@@ -1,50 +1,69 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createRef, forwardRef } from 'react';
 import '../../styles/pages/Home.css';
 import StringHelper from '../utils/string-helper.js'
-import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
-import hero_video from '../../assets/videos/home/hero_video.mp4';
+import SliderInititator from '../utils/slider-initiator.js';
+import defaultImg from '../../assets/images/default_img.svg';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
 import GeneralData from '../data/GeneralData.js';
 import CitizenData from '../data/CitizenData';
 
 const Home = (props) => {
-  const [generalData, setGeneralData] = useState({name: 'Village Website'});
-  const [citizenData, setCitizenData] = useState(['', '', '']);
-  const [heroMuted, setHeroMuted]     = useState(true);
-  const heroVideoMuted                = heroMuted ? 'muted': '';
-  const iconVolumeClassName           = StringHelper.join(' ', 'icon-volume', heroVideoMuted);
+  const [slideImagesRef, setSlideImagesRef] = useState([]);
+  const [citizenData, setCitizenData]       = useState(['', '', '']);
+  const [isLoading, setIsLoading]           = useState(true);
+  const loadingClassName                    = isLoading ? 'box-loading' : '';
+  const heroBoxClassName                    = StringHelper.join(' ', 'hero-box', loadingClassName);
+  const [generalData, setGeneralData]       = useState({
+    name: 'Village Website',
+    description: '',
+    address: '',
+    sliders: [],
+  });
 
   useEffect(() => {
     GeneralData.getAll()
-    .then(data => setGeneralData(data));
+    .then(data => {
+      setGeneralData(data);
+      setIsLoading(false);
+    });
 
     CitizenData.getStatistics()
     .then(data => setCitizenData(data));
   }, []);
 
+
+  useEffect(() => {
+    setSlideImagesRef(generalData.sliders.map(() => createRef()));
+  }, [generalData]);
+
+  
+  useEffect(() => {
+    SliderInititator.init({
+      items: slideImagesRef.map(item => item.current),
+      interval: 3000,
+    });
+  }, [slideImagesRef]);
+
+
   return (
     <section id="home-page">
-      <div className="hero-box container">
-        <div className="video-box" onClick={()=> setHeroMuted(!heroVideoMuted)}>
-          <video
-            src={hero_video}
-            poster={thumbnail_1}
-            muted={heroMuted}
-            autoPlay
-            preload="metadata"
-            loop
-          ></video>
-          <div className={iconVolumeClassName}>
-            <i className="icon_custom"></i>
-          </div>
+      <div className={heroBoxClassName}>
+        <SliderBox data={generalData.sliders} ref={slideImagesRef} />
+        <div className="text-box container">
+          <h2>{generalData.name}</h2>
+          <p>{generalData.description}</p>
+          <span>
+            <i className="icon_location-ff0505"></i>
+            {generalData.address}
+          </span>
         </div>
       </div>
 
       <div className="citizen-box container">
         <div className="text-box">
           <h2>Penduduk</h2>
-          <p>Kampung Cirendeu dihuni oleh 367 kepala keluarga atau kurang lebih 1.200 jiwa. Terdiri dari 550 orang perempuan dan 650 orang laki-laki. Kondisi sosial masyarakat di kampung Cireundeu memiliki keadaan sosial yang terbuka dengan masyarakat luar. Namun kebanyakan masyarakat kampung Cireundeu tidak suka merantau atau berpisah dengan orang-orang sekerabat.</p>
+          <p>Kampoeng Cirendeu dihuni oleh kurang lebih {citizenData[0].total} penduduk. Terdiri dari {citizenData[1].total} orang laki-laki dan {citizenData[2].total} orang perempuan. Kondisi sosial masyarakat di kampung Cireundeu memiliki keadaan sosial yang terbuka dengan masyarakat luar. Namun kebanyakan masyarakat kampung Cireundeu tidak suka merantau atau berpisah dengan orang-orang sekerabat.</p>
         </div>
 
         <CitizenStatistics data={citizenData} />
@@ -71,6 +90,26 @@ const Home = (props) => {
     </section>
   );
 };
+
+
+const SliderBox = forwardRef((props, ref) => {
+  const {data, className} = props;
+  const sliderBoxClassName = StringHelper.join(' ', 'slider-box', className);
+
+  return (
+    <div className={sliderBoxClassName}>
+      {data.map((item, index) => (
+        <img 
+          src={item.imageUrl || defaultImg} 
+          key={index}
+          ref={ref[index]} 
+          alt="Village Illustration"
+          height="500"
+        />
+      ))}
+    </div>
+  );
+});
 
 
 const CitizenStatistics = (props) => {

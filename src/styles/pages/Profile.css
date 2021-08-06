@@ -13,74 +13,66 @@
 #profile-page > .hero-box{
   width: 100%;
   height: auto;
-  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* DARKEN HERO SECTION */
-#profile-page > .hero-box::after{
-  content: "";
+/* HERO VIDEO BOX */
+#profile-page > .hero-box > .video-box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+#profile-page > .hero-box > .video-box::after{
+  content: " ";
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color .3s;
+  cursor: pointer;
   z-index: 1;
 }
 
-/* HERO SLIDER BOX */
-#profile-page > .hero-box > .slider-box{
-  width: 100%;
-  height: 54rem;
-  display: flex;
-  overflow: hidden;
-  z-index: 0;
+#profile-page > .hero-box > .video-box.paused::after{
+  background-color: rgba(0, 0, 0, .3);
 }
 
-#profile-page > .hero-box > .slider-box > img{
+#profile-page > .hero-box > .video-box > video{
   width: 100%;
-  height: 100%;
+  display: flex;
   flex-shrink: 0;
-  object-fit: cover;
 }
 
-/* TEXT BOX */
-#profile-page > .hero-box > .text-box{
-  max-width: 60rem;
-  display: flex;
-  flex-direction: column;
+#profile-page > .hero-box > .video-box > .icon-play{
   position: absolute;
-  color: #FFF;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(2);
+  transition: opacity .3s, transform .3s;
   z-index: 2;
 }
 
-#profile-page > .hero-box > .text-box > h2{
-  margin-bottom: 2.5rem;
-  font-size: calc(var(--x-large) - 8px);
+#profile-page > .hero-box > .video-box.paused > .icon-play{
+  opacity: 1;
+  transform: scale(1);
 }
 
-#profile-page > .hero-box > .text-box > p{
-  margin-bottom: 4rem;
-  font-size: var(--small);
-  text-align: justify;
-  line-height: 1.25;
-}
-
-#profile-page > .hero-box > .text-box > span{
-  font-size: var(--small);
-  display: flex;
-  align-items: center;
-}
-
-#profile-page > .hero-box > .text-box > span > .icon_location-ff0505{
-  --icon-size: 2.8rem;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
+#profile-page > .hero-box > .video-box > .icon-play > .icon_play-fff{
+  --icon-size: 8rem;
 }
 
 
@@ -95,7 +87,7 @@
 
 /* HEADING 2 */
 #profile-page > .content-box > h2{
-	margin-bottom: 3rem;
+	margin: 3rem 0;
   color: var(--main-accent-color);
 	font-size: calc(var(--x-large) - 1.4rem);
 	font-family: "Grand Hotel";
@@ -129,17 +121,22 @@
 	/*
     HERO SECTION
   */
-  #profile-page > .hero-box > .text-box > h2{
-    font-size: var(--xx-large);
+  /* HERO VIDEO BOX */
+  #profile-page > .hero-box > .video-box > .icon-play > .icon_play-fff{
+    --icon-size: 6rem;
   }
 
-	/* HEADING 2 */
+
+  /*
+    CONTENT SECTION
+  */
+  /* HEADING 2 */
 	#profile-page > .content-box > h2{
-		font-size: calc(var(--xx-large) + 0.6rem);
+		font-size: var(--x-large);
 	}
 
 	/* TEXT BOX  */
 	#profile-page > .content-box > .paragraph-box > p{
-		font-size: var(--medium);
+		font-size: var(--small);
 	}
 }

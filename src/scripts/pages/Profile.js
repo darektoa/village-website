@@ -1,15 +1,17 @@
-import { useEffect, createRef, forwardRef, useState } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import '../../styles/pages/Profile.css';
-import defaultImg from '../../assets/images/default_img.svg';
-import SliderInititator from '../utils/slider-initiator.js';
+import thumbnail_1 from '../../assets/images/home/thumbnail_1.jpeg';
+import hero_video from '../../assets/videos/home/hero_video.mp4';
 import StringHelper from '../utils/string-helper';
 import GeneralData from '../data/GeneralData';
 
 const Profile = () => {
-  const [slideImagesRef, setSlideImagesRef] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const loadingClassName = isLoading ? 'box-loading' : '';
-  const heroBoxClassName = StringHelper.join(' ', 'hero-box', loadingClassName);
+  const [isLoading, setIsLoading]   = useState(true);
+  const [heroPlayed, setHeroPlayed] = useState(false);
+  const heroVideoRef                = createRef();
+  const loadingClassName            = isLoading ? 'box-loading' : '';
+  const heroVideoPlayedClassName    = heroPlayed ? 'played': 'paused';
+  const heroVideoClassName          = StringHelper.join(' ', 'video-box',  heroVideoPlayedClassName, loadingClassName);
   const [data, setData] = useState({
     name: 'Village Website',
     description: '',
@@ -18,35 +20,36 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    setSlideImagesRef(data.sliders.map(() => createRef()));
-  }, [data]);
-
-  useEffect(() => {
-    SliderInititator.init({
-      items: slideImagesRef.map(item => item.current),
-      interval: 3000,
-    });
-  }, [slideImagesRef]);
-
-  useEffect(() => {
     GeneralData.getAll()
     .then(data => {
       setData(data);
       setIsLoading(false);
     });
-  });
+  }, []);
+
+
+  useEffect(() => {
+    const heroVideoELmnt = heroVideoRef.current;
+
+    if(heroPlayed) heroVideoELmnt.play();
+    else heroVideoELmnt.pause();
+
+  }, [heroPlayed, heroVideoRef]);
 
   return (
     <section id="profile-page">
-      <div className={heroBoxClassName}>
-        <SliderBox data={data.sliders} ref={slideImagesRef} />
-        <div className="text-box container">
-          <h2>{data.name}</h2>
-          <p>{data.description}</p>
-          <span>
-            <i className="icon_location-ff0505"></i>
-            {data.address}
-          </span>
+      <div className="hero-box container">
+        <div className={heroVideoClassName} onClick={()=> setHeroPlayed(!heroPlayed)}>
+          <video
+            ref={heroVideoRef}
+            src={hero_video}
+            poster={thumbnail_1}
+            preload="metadata"
+            loop
+          ></video>
+          <div className="icon-play">
+            <i className="icon_play-fff"></i>
+          </div>
         </div>
       </div>
       <div className="content-box container">
@@ -63,24 +66,5 @@ const Profile = () => {
     </section>
   );
 };
-
-const SliderBox = forwardRef((props, ref) => {
-  const {data, className} = props;
-  const sliderBoxClassName = StringHelper.join(' ', 'slider-box', className);
-
-  return (
-    <div className={sliderBoxClassName}>
-      {data.map((item, index) => (
-        <img 
-          src={item.imageUrl || defaultImg} 
-          key={index}
-          ref={ref[index]} 
-          alt="Village Illustration"
-          height="500"
-        />
-      ))}
-    </div>
-  );
-});
 
 export default Profile;
