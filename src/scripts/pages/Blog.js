@@ -1,8 +1,8 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/pages/Blog.css';
-// import articleData from '../data/article-data.js';
 import defaultImg from '../../assets/images/transparent.svg';
+import errorImg from '../../assets/images/error_img.svg';
 import StringHelper from '../utils/string-helper.js';
 import ElementHelper from '../utils/element-helper';
 import BlogData from '../data/BlogData';
@@ -75,23 +75,31 @@ const Tags = (props) => {
 
 /* ARTICLE ELEMENT */
 const Article = (props) => {
-  const { pathname } = useLocation();
-  const { data, listedTags, className='' } = props;
-  const { id, thumbnail, tags=[], title } = data;
-  const tagData = tags.map(item => StringHelper.tag(item.slug));
-  const list = listedTags === true ? true : false;
-  const imgBoxClassName = StringHelper.join(' ', 'img-box', className);
-  const imgRef = createRef();
+  const { pathname }                        = useLocation();
+  const { data, listedTags, className='' }  = props;
+  const { id, thumbnail, tags=[], title }   = data;
+  const list                                = listedTags === true ? true : false;
+  const imgRef                              = createRef();
+  const tagData                             = tags.map(item => StringHelper.tag(item.slug));
+  const [imgLoading, setImgLoading]         = useState(true);
+  const imgLoadingClassName                 = imgLoading ? 'box-loading' : '';
+  const imgBoxClassName                     = StringHelper.join(' ', 'img-box', imgLoadingClassName);
   
   useEffect(() => {
     const imgElmnt = imgRef.current;
-    const successHandler = () => {};
-    const errorHandler = () => imgElmnt.src = defaultImg;
+    const successHandler = () => {
+      if(thumbnail) setImgLoading(false);
+    };
+
+    const errorHandler = (err) => {
+      if(thumbnail) setImgLoading(false);
+      imgElmnt.src = errorImg;
+    };
 
     ElementHelper.load(imgElmnt)
     .then(successHandler)
     .catch(errorHandler)
-  }, [imgRef]);
+  }, [imgRef, thumbnail]);
 
   return(
     <Link className="article" to={`${pathname}/${id}`}>

@@ -79,6 +79,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: #C4C4C4;
   border-radius: 1rem;
   object-fit: cover;
 }
@@ -117,6 +118,14 @@
 /*
   LOADING ANIMATION STYLE
 */
+#blog-detail-page .title-box > .published.box-loading{
+  width: 80%;
+  max-width: 25rem;
+  min-height: 2rem;
+  color: transparent;
+  border-radius: 0.5rem;
+}
+
 #blog-detail-page .title-box > h2.box-loading{
   width: 100%;
   min-height: 6rem;
@@ -127,7 +136,7 @@
 #blog-detail-page .title-box > .tags.box-loading{
   width: 100%;
   max-width: 40rem;
-  min-height: 3rem;
+  min-height: 2rem;
   border-radius: 0.5rem;
 }
 
@@ -135,6 +144,10 @@
   width: 100%;
   min-height: 3rem;
   border-radius: 0.5rem;
+}
+
+#blog-detail-page .img-box.box-loading > img{
+  background-color: transparent;
 }
 
 

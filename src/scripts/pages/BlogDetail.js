@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/pages/BlogDetail.css';
 import BlogData from '../data/BlogData';
 import StringHelper from '../utils/string-helper';
 import defaultImg from '../../assets/images/transparent.svg';
+import errorImg from '../../assets/images/error_img.svg';
+import ElementHelper from '../utils/element-helper';
 
 const BlogDetail = () => {
   const { idBlog } = useParams();
@@ -37,6 +39,7 @@ const TitleBox = (props) => {
   const { data, className } = props;
   const { tags=[], created_at } = data;
   const tagData = tags.map(item => StringHelper.tag(item.slug));
+  const publishedClassName = StringHelper.join(' ', 'published', className);
   const publishedDate = new Date(created_at).toLocaleDateString('id-ID', {
     year: 'numeric',
     month: 'long',
@@ -46,7 +49,7 @@ const TitleBox = (props) => {
   return(
     <div className="title-box">
       <button className="back" onClick={()=>window.history.back()}> ← </button>
-      <span className="published">Published at {publishedDate}</span>
+      <span className={publishedClassName}>Published at {publishedDate}</span>
       <h2 className={className}>{data.title}</h2>
       <Tags data={tagData} className={className}/>
     </div>
@@ -56,12 +59,33 @@ const TitleBox = (props) => {
 
 /* IMG BOX ELEMENT */
 const ImgBox = (props) => {
-  const { data, className='' } = props;
-  const imgBoxClassName = StringHelper.join(' ', 'img-box', className);
+  const { data }                    = props;
+  const imgRef                      = createRef();
+  const [imgLoading, setImgLoading] = useState(true);
+  const imgLoadingClassName         = imgLoading ? 'box-loading': '';
+  const imgBoxClassName             = StringHelper.join(' ', 'img-box', imgLoadingClassName);
+
+
+  useEffect(() => {
+    const imgElmnt = imgRef.current;
+
+    const successHandler = () => {
+      if(data.thumbnail) setImgLoading(false);
+    };
+  
+    const errorHandler = (err) => {
+      setImgLoading(false);
+      imgElmnt.src = errorImg;
+    };
+
+    ElementHelper.load(imgElmnt)
+    .then(successHandler)
+    .catch(errorHandler);
+  }, [imgRef, data]);
 
   return(
     <div className={imgBoxClassName}>
-      <img src={data.thumbnail || defaultImg} alt=" " />
+      <img ref={imgRef} src={data.thumbnail || defaultImg} alt=" " />
     </div>
   );
 };
