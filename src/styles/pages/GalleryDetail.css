@@ -105,6 +105,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: #C4C4C4;
   border-radius: 1.5rem;
   object-fit: cover;
   z-index: 1;
@@ -128,6 +129,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
+}
+
+
+/*
+  LOADING ANIMATION STYLE
+*/
+#gallery-detail-page > .media-box > .media.box-loading > img,
+#gallery-detail-page > .media-box > .media.box-loading > video{
+  background-color: transparent;
 }
 
 

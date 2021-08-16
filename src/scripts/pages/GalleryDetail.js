@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createRef } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../styles/pages/GalleryDetail.css';
 import defaultImg from '../../assets/images/transparent.svg';
+import errorImg from '../../assets/images/error_img.svg';
 import StringHelper from '../utils/string-helper';
 import GalleryData from '../data/GalleryData.js';
+import ElementHelper from '../utils/element-helper';
 
 
 const Gallery = (props) => {  
@@ -62,14 +64,33 @@ const MediaLoop = (props) => {
 
 /* IMAGE ELEMENT */
 const ImageMedia = (props) => {
-  const { data, className='' } = props;
-  const { image } = data;
-  const secureImage   = image?.replace('http://', 'https://');
-  const mediaClassName = StringHelper.join(' ', 'media', className);
+  const { image }                   = props.data;
+  const [imgLoading, setImgLoading] = useState(true);
+  const imgRef                      = createRef();
+  const secureImg                   = image?.replace('http://', 'https://');
+  const imgLoadingClassName         = imgLoading ? 'box-loading' : '';
+  const mediaClassName              = StringHelper.join(' ', 'media', imgLoadingClassName);
+
+  useEffect(() => {
+    const imgElmnt = imgRef.current;
+
+    const successHandler = () => {
+      if(image) setImgLoading(false);
+    };
+
+    const errorHandler = () => {
+      setImgLoading(false);
+      imgElmnt.src = errorImg;
+    };
+
+    ElementHelper.load(imgElmnt)
+    .then(successHandler)
+    .catch(errorHandler);
+  }, [image, imgRef]);
 
   return(
     <div className={mediaClassName}>
-      <img src={secureImage || defaultImg } alt=" " />
+      <img ref={imgRef} src={secureImg || defaultImg} alt=" " />
     </div>
   );
 };

@@ -2,11 +2,13 @@ import { useEffect, useState, createRef, forwardRef } from 'react';
 import '../../styles/pages/Home.css';
 import StringHelper from '../utils/string-helper.js'
 import SliderInititator from '../utils/slider-initiator.js';
-import defaultImg from '../../assets/images/default_img.svg';
+import defaultImg from '../../assets/images/transparent.svg';
+import errorImg from '../../assets/images/error_img.svg';
 import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
 import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
 import GeneralData from '../data/GeneralData.js';
 import CitizenData from '../data/CitizenData';
+import ElementHelper from '../utils/element-helper';
 
 const Home = (props) => {
   const [slideImagesRef, setSlideImagesRef] = useState([]);
@@ -99,14 +101,47 @@ const SliderBox = forwardRef((props, ref) => {
   return (
     <div className={sliderBoxClassName}>
       {data.map((item, index) => (
-        <img 
-          src={item.imageUrl || defaultImg} 
-          key={index}
-          ref={ref[index]} 
-          alt="Village Illustration"
-          height="500"
-        />
+        <SliderBoxImg data={{...item, index}} ref={ref} key={index} />
       ))}
+    </div>
+  );
+});
+
+
+const SliderBoxImg = forwardRef((props, ref) => {
+  const { imageUrl: image, index }  = props.data;
+  const [imgLoading, setImgLoading] = useState(true);
+  const imgRef                      = createRef();
+  const secureImg                   = image?.replace('http://', 'https://');
+  const imgLoadingClassName         = imgLoading ? 'box-loading' : '';
+  const imgBoxClassName             = StringHelper.join(' ', 'img-box', imgLoadingClassName);
+
+  useEffect(() => {
+    const imgElmnt = imgRef.current;
+    
+    const successHandler = () => {
+      if(image) setImgLoading(false);
+    };
+
+    const errorHandler = () => {
+      setImgLoading(false);
+      imgElmnt.src = errorImg;
+    };
+
+    ElementHelper.load(imgElmnt)
+    .then(successHandler)
+    .catch(errorHandler);
+  }, [image, imgRef]);
+
+
+  return (
+    <div ref={ref[index]} className={imgBoxClassName}>
+      <img
+        ref={imgRef}
+        src={secureImg || defaultImg}
+        alt="Village Illustration"
+        height="500"
+      />
     </div>
   );
 });

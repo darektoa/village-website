@@ -70,6 +70,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: #C4C4C4;
   border-radius: 1.5rem;
   object-fit: cover;
   transition: transform .5s;
@@ -91,7 +92,8 @@
 /*
   LOADING ANIMATION STYLE
 */
-#gallery-page > .album-box > .album.box-loading::after{
+#gallery-page > .album-box > .album.box-loading::after,
+#gallery-page > .album-box > .album.box-loading > img{
   background-color: transparent;
 }
 
