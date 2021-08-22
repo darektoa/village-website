@@ -26,6 +26,12 @@ const navlinkData = [
 		external: true
 	},
 	{
+		to: 'https://karang-taruna.cireundeu.solusi.vip/',
+		content: 'Taruna',
+		target: '_blank',
+		external: true
+	},
+	{
 		to: 'https://pengaduan.solusi.vip',
 		content: 'Aduan',
 		target: '_blank',

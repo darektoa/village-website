@@ -31,6 +31,7 @@
   left: 0;
   color: var(--main-accent-color);
   font-size: calc(var(--x-large) - 1rem);
+  text-decoration: none;
   text-shadow: .05rem .05rem var(--main-accent-color);
   line-height: .5;
   background: none;

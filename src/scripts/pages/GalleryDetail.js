@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import '../../styles/pages/GalleryDetail.css';
 import defaultImg from '../../assets/images/transparent.svg';
 import errorImg from '../../assets/images/error_img.svg';
@@ -29,7 +29,7 @@ const Gallery = (props) => {
   return(
     <section id="gallery-detail-page" className="container">
       <div className="title-box">
-        <button className="back" onClick={()=>window.history.back()}> ← </button>
+        <Link to="/gallery" className="back"> ← </Link>
         <h2>{data.name}</h2>
       </div>
 
@@ -47,7 +47,15 @@ const MediaLoop = (props) => {
 
   return(
     <React.Fragment>
-      {data.map((item, index) => <ImageMedia data={item} key={index} className={className} />)}
+      <MediaPreview data={data}/>
+
+      {data.map((item, index) => (
+        <ImageMedia
+          key={index}
+          data={item} 
+          className={className}
+        />
+      ))}
     </React.Fragment>
   )
 };
@@ -62,9 +70,51 @@ const MediaLoop = (props) => {
 // };
 
 
+/* MEDIA PREVIEW */
+const MediaPreview = (props) => {
+  const { data, className:propClassName}  = props;
+  const { search }                        = useLocation();
+  const [image, setImage]                 = useState(null);
+  const [className, setClassName]         = useState('hidden');
+  const previewId                         = Number(new URLSearchParams(search).get('preview'));
+  const secureImg                         = image?.replace('http://', 'https://');
+  const bodyClassList                     = document.body.classList;
+  const mediaPreviewClassName             = StringHelper.join(' ', 'media-preview', propClassName, className);
+
+  const clickHandler = () => {
+    bodyClassList.remove('hidden');
+    setClassName('hidden');
+  };
+
+  useEffect(() => {
+    const item = data.find(item => item.id === previewId);
+    
+    if(item) {
+      bodyClassList.add('hidden');
+      setImage(item.image);
+      setClassName('');
+    }
+  }, [data, previewId, bodyClassList]);
+
+
+  return(
+    <div 
+      className={mediaPreviewClassName} 
+      onClick={clickHandler} 
+      style={{'--background': `url("${secureImg}")`}}>
+      <div className="img-box">
+        <img 
+          src={secureImg || defaultImg} alt=" " />
+      </div>
+    </div>
+  );
+};
+
+
 /* IMAGE ELEMENT */
 const ImageMedia = (props) => {
-  const { image }                   = props.data;
+  const { data, onClick }           = props;
+  const { id, image }               = data;
   const [imgLoading, setImgLoading] = useState(true);
   const imgRef                      = createRef();
   const secureImg                   = image?.replace('http://', 'https://');
@@ -89,9 +139,15 @@ const ImageMedia = (props) => {
   }, [image, imgRef]);
 
   return(
-    <div className={mediaClassName}>
-      <img ref={imgRef} src={secureImg || defaultImg} alt=" " />
-    </div>
+    <Link to={`?preview=${id}`} className={mediaClassName}>
+      <img
+        alt=" " 
+        ref={imgRef} 
+        data-id={id}
+        onClick={onClick}
+        src={secureImg || defaultImg}
+      />
+    </Link>
   );
 };
 

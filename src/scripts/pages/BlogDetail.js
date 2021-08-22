@@ -1,5 +1,5 @@
 import { createRef, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../../styles/pages/BlogDetail.css';
 import BlogData from '../data/BlogData';
 import StringHelper from '../utils/string-helper';
@@ -48,7 +48,7 @@ const TitleBox = (props) => {
 
   return(
     <div className="title-box">
-      <button className="back" onClick={()=>window.history.back()}> ← </button>
+      <Link to="/blog" className="back"> ← </Link>
       <span className={publishedClassName}>Published at {publishedDate}</span>
       <h2 className={className}>{data.title}</h2>
       <Tags data={tagData} className={className}/>
