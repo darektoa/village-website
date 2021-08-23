@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from 'react';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation, useHistory } from 'react-router-dom';
 import '../../styles/pages/GalleryDetail.css';
 import defaultImg from '../../assets/images/transparent.svg';
 import errorImg from '../../assets/images/error_img.svg';
@@ -73,17 +73,19 @@ const MediaLoop = (props) => {
 /* MEDIA PREVIEW */
 const MediaPreview = (props) => {
   const { data, className:propClassName}  = props;
-  const { search }                        = useLocation();
+  const { search, pathname }              = useLocation();
   const [image, setImage]                 = useState(null);
   const [className, setClassName]         = useState('hidden');
+  const history                           = useHistory();
   const previewId                         = Number(new URLSearchParams(search).get('preview'));
   const secureImg                         = image?.replace('http://', 'https://');
   const bodyClassList                     = document.body.classList;
   const mediaPreviewClassName             = StringHelper.join(' ', 'media-preview', propClassName, className);
 
   const clickHandler = () => {
-    bodyClassList.remove('hidden');
+    history.push(pathname);
     setClassName('hidden');
+    bodyClassList.remove('hidden');
   };
 
   useEffect(() => {
