@@ -1,11 +1,12 @@
 import { createRef, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import '../../styles/pages/BlogDetail.css';
-import BlogData from '../data/BlogData';
-import StringHelper from '../utils/string-helper';
-import defaultImg from '../../assets/images/transparent.svg';
-import errorImg from '../../assets/images/error_img.svg';
-import ElementHelper from '../utils/element-helper';
+import { useParams, useHistory } from 'react-router-dom';
+import '../../../styles/pages/blog/BlogDetail.css';
+import Tags from '../../components/blog/Tags.js';
+import BlogData from '../../data/BlogData';
+import StringHelper from '../../utils/string-helper';
+import ElementHelper from '../../utils/element-helper';
+import defaultImg from '../../../assets/images/transparent.svg';
+import errorImg from '../../../assets/images/error_img.svg';
 
 const BlogDetail = () => {
   const { idBlog } = useParams();
@@ -38,6 +39,7 @@ const BlogDetail = () => {
 const TitleBox = (props) => {
   const { data, className } = props;
   const { tags=[], created_at } = data;
+  const history = useHistory();
   const tagData = tags.map(item => StringHelper.tag(item.slug));
   const publishedClassName = StringHelper.join(' ', 'published', className);
   const publishedDate = new Date(created_at).toLocaleDateString('id-ID', {
@@ -46,9 +48,14 @@ const TitleBox = (props) => {
     day: 'numeric'
   });
 
+  const handlerBack = (event) => {
+    history.goBack();
+    event.preventDefault();
+  };
+
   return(
     <div className="title-box">
-      <Link to="/blog" className="back"> ← </Link>
+      <a href=" " className="back" onClick={handlerBack}> ← </a>
       <span className={publishedClassName}>Published at {publishedDate}</span>
       <h2 className={className}>{data.title}</h2>
       <Tags data={tagData} className={className}/>
@@ -97,32 +104,10 @@ const TextBox = (props) => {
   const textBoxClassName = StringHelper.join(' ', 'text-box', className);
 
   return(
-    <div className={textBoxClassName}>
-      {data.description}
+    <div className={textBoxClassName} 
+      dangerouslySetInnerHTML={{__html: data.description}}>
     </div>
   );
-};
-
-
-/* TAGS ELEMENT */
-const Tags = (props) => {
-  const { data, list, className='' } = props;
-  const tagClassName = StringHelper.join(' ', 'tag', className);
-  const tagsClassName = StringHelper.join(' ', 'tags', className);
-
-  if (list) {
-    return(
-      <ul className="tags">
-        { data.map((tag, indx) => <li className={tagClassName} key={indx}>{tag}</li>) }
-      </ul>
-    );
-  }
-
-  return(
-    <span className={tagsClassName}>
-      { data.join(' ') }
-    </span>
-  )
 };
 
 export default BlogDetail;

@@ -1,38 +1,12 @@
 import React, { createRef, useEffect, useState } from 'react';
 import {Link, useLocation } from 'react-router-dom';
-import '../../styles/pages/Gallery.css';
-import defaultImg from '../../assets/images/transparent.svg';
-import errorImg from '../../assets/images/error_img.svg';
-import StringHelper from '../utils/string-helper.js';
-import ElementHelper from '../utils/element-helper';
-import GalleryData from '../data/GalleryData.js';
+import '../../../styles/components/gallery/Album.css';
+import defaultImg from '../../../assets/images/transparent.svg';
+import errorImg from '../../../assets/images/error_img.svg';
+import StringHelper from '../../utils/string-helper.js';
+import ElementHelper from '../../utils/element-helper';
 
 
-const Gallery = (props) => {
-  const [data, setData] = useState(['', '', '', '']); 
-  const [isLoading, setIsLoading] = useState(true);
-  const loadingClassName = isLoading ? 'box-loading' : '';
-
-  useEffect(() => {
-    GalleryData.getAll()
-    .then(data => {
-      setData(data);
-      setIsLoading(false);
-    });
-  }, []);
-
-  return(
-    <section id="gallery-page" className="container">
-      <h2>Galleries</h2>
-      <div className="album-box">
-        {data.map((item, index) => <Album data={item} key={index} className={loadingClassName} /> )}
-      </div>  
-    </section>
-  );
-};
-
-
-/* MEDIA ELEMENT */
 const Album = (props) => {
   const { pathname }                = useLocation();
   const { data }                    = props;
@@ -69,4 +43,5 @@ const Album = (props) => {
   );
 };
 
-export default Gallery;
+
+export default Album;

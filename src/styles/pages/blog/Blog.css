@@ -163,8 +163,9 @@
   color: #FFF;
   font-size: var(--x-large);
   font-weight: 600;
+  text-align: center;
   background-size: 200%;
-  background-image: url("../../assets/images/date_bg.svg");
+  background-image: url("../../../assets/images/date_bg.svg");
   border-radius: 1.5rem;
 }
 
@@ -203,18 +204,10 @@
   overflow: hidden;
 }
 
-#blog-page > .latests-news > .articles > .article > .img-box > img{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-}
-
 #blog-page > .latests-news > .articles > .article > .text-box{
   width: 100%;
   height: 100%;
+  padding: unset;
   flex-shrink: 1;
 }
 

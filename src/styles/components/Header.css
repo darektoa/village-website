@@ -15,6 +15,7 @@
 }
 
 .header.sticked{
+  min-height: 8rem;
   background-color: #FFF;
   box-shadow: 0 .4rem 10px 0 #CDCDCD;
 }

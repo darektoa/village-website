@@ -1,11 +1,11 @@
 import React, { useEffect, useState, createRef } from 'react';
 import { Link, useParams, useLocation, useHistory } from 'react-router-dom';
-import '../../styles/pages/GalleryDetail.css';
-import defaultImg from '../../assets/images/transparent.svg';
-import errorImg from '../../assets/images/error_img.svg';
-import StringHelper from '../utils/string-helper';
-import GalleryData from '../data/GalleryData.js';
-import ElementHelper from '../utils/element-helper';
+import '../../../styles/pages/gallery/GalleryDetail.css';
+import defaultImg from '../../../assets/images/transparent.svg';
+import errorImg from '../../../assets/images/error_img.svg';
+import StringHelper from '../../utils/string-helper';
+import GalleryData from '../../data/GalleryData.js';
+import ElementHelper from '../../utils/element-helper';
 
 
 const Gallery = (props) => {  

@@ -1,0 +1,78 @@
+.album-box{
+  width: 100%;
+  height: auto;
+  margin-bottom: 7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  grid-auto-rows: max-content;
+  gap: 2.5rem;
+}
+
+.album-box > .album{
+  width: 100%;
+  padding-top: 135%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5rem;
+  box-shadow: .2rem .4rem 2rem 0 #919191;
+  overflow: hidden;
+}
+
+.album-box > .album::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 1.5rem;
+  z-index: 2;
+}
+
+.album-box > .album:hover > img{
+  transform: scale(1.1);
+}
+
+.album-box > .album:hover > h3{
+  text-decoration: underline;
+}
+
+.album-box > .album > img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #C4C4C4;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  transition: transform .5s;
+  z-index: 1;
+}
+
+.album-box > .album > h3{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #FFF;
+  font-size: var(--medium);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+
+/*
+  LOADING ANIMATION STYLE
+*/
+.album-box > .album.box-loading::after,
+.album-box > .album.box-loading > img{
+  background-color: transparent;
+}
+
+.album-box > .album.box-loading > h3{
+  color: transparent;
+}

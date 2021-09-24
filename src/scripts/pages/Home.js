@@ -1,18 +1,20 @@
 import { useEffect, useState, createRef, forwardRef } from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/pages/Home.css';
+import ElementHelper from '../utils/element-helper';
 import StringHelper from '../utils/string-helper.js'
 import SliderInititator from '../utils/slider-initiator.js';
 import defaultImg from '../../assets/images/transparent.svg';
 import errorImg from '../../assets/images/error_img.svg';
-import illustration_1 from '../../assets/images/home/illustration_1.jpeg';
-import illustration_2 from '../../assets/images/home/illustration_2.jpeg';
 import GeneralData from '../data/GeneralData.js';
 import CitizenData from '../data/CitizenData';
-import ElementHelper from '../utils/element-helper';
+import ArticleLoop from '../components/blog/ArticleLoop.js';
+import BlogData from '../data/BlogData';
 
 const Home = (props) => {
   const [slideImagesRef, setSlideImagesRef] = useState([]);
   const [citizenData, setCitizenData]       = useState(['', '', '']);
+  const [blogData, setBlogData]             = useState(['', '', '']);
   const [isLoading, setIsLoading]           = useState(true);
   const loadingClassName                    = isLoading ? 'box-loading' : '';
   const heroBoxClassName                    = StringHelper.join(' ', 'hero-box', loadingClassName);
@@ -31,7 +33,15 @@ const Home = (props) => {
     });
 
     CitizenData.getStatistics()
-    .then(data => setCitizenData(data));
+    .then(data => {
+      console.log(data)
+      setCitizenData(data)
+    });
+
+    BlogData.getByPage(1)
+    .then(data => {
+      setBlogData(data.slice(0, 12));
+    });
   }, []);
 
 
@@ -49,7 +59,7 @@ const Home = (props) => {
 
 
   return (
-    <section id="home-page">
+    <section id="home-page" className="container">
       <div className={heroBoxClassName}>
         <SliderBox data={generalData.sliders} ref={slideImagesRef} />
         <div className="text-box container">
@@ -71,23 +81,17 @@ const Home = (props) => {
         <CitizenStatistics data={citizenData} />
       </div>
 
-      <div className="content-box container">
+      <div className="blog-box container">
+        <h2>Berita</h2>
+        <div className="articles">
+          <ArticleLoop data={blogData}/>
+        </div>
+        
+        <Link to="/blog" className="see-all"> Lihat Semua → </Link>
+
         <i className="icon_leaf-grey"></i>
-
-        <div className="text-box">
-          <h2>Daya Tarik Adat {generalData.name}</h2>
-          <div className="paragraph-box">
-            <p>Kampung Adat Cireundeu ini berada di kawasan Leuwigajah, Kota Cimahi Jawa Barat, dan beroperasi setiap hari selama 24 jam. Destinasi ini merupakan salah satu kampung wisata di Jawa Barat yang menghadirkan seni serta budaya lokal khas tradisional. Daya tarik utamanya yaitu adanya Hutan Larangan dan Hutan Tutupan, yang menjadi kawasan hutan lindung di Bandung.</p>
-            <p>Selain hutan, Kampung Cireundeu juga dikelilingi oleh pegunungan yang indah, dan membuat kawasan kampung tersebut menjadi sangat asri dan alami. Menghirup udara di Puncak Salam, salah satu gunung yang ada di sana, rasanya akan puas sekali. Lantunan suara dari karinding yang seringkali dimainkan warga setempat akan menambah syahdu suasana saat berada di puncak gunung.</p>
-          </div>
-        </div>
-
-        <div className="img-box">
-          <img src={illustration_1} alt="Village Illustration" width="370" height="460" />
-          <img src={illustration_2} alt="Village Illustration" width="370" height="460" />
-          <i className="icon_paddy-grey"></i>
-          <i className="icon_flower-grey"></i>
-        </div>
+        <i className="icon_paddy-grey"></i>
+        <i className="icon_flower-grey"></i>
       </div>
     </section>
   );
@@ -152,27 +156,42 @@ const CitizenStatistics = (props) => {
 
   return (
     <div className="citizen-statistics">
-      {data.map((item, index) => (
-        <CitizenInfo data={{...item, unit: 'Orang'}} key={index} />
+      {data.map((item, key) => (
+        <CardStatistic data={item} key={key}/>
       ))}
     </div>
   );
 };
 
 
-const CitizenInfo = (props) => {
-  const { heading, total, unit, iconClassName } = props.data;
+const CardStatistic = (props) => {
+  console.log(props);
+  const { 
+    heading, iconClassName, total,
+    babies=[], childrens=[], teenagers=[], 
+    adults=[], seniorAdults=[]
+  } = props.data;
 
   return (
-    <div className="data">
+    <div className="statistic-card">
+      <div className="badge">
+        <h3>{total}</h3>
+        <span>Orang</span>
+      </div>
+
       <div className="icon-box">
         <i className={iconClassName}></i>
       </div>
 
       <div className="text-box">
         <h3>{heading}</h3>
-        <span className="total">{total}</span>
-        <span className="unit">{unit}</span>
+        <ul>
+          <li>✓ Bayi {babies.length}</li>
+          <li>✓ Anak-anak {childrens.length}</li>
+          <li>✓ Remaja {teenagers.length}</li>
+          <li>✓ Dewasa {adults.length}</li>
+          <li>✓ Lansia {seniorAdults.length}</li>
+        </ul>
       </div>
     </div>
   );

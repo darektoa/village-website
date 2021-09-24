@@ -1,0 +1,10 @@
+.tags{
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: var(--main-accent-color);
+  font-size: var(--x-small);
+  overflow: hidden;
+}
