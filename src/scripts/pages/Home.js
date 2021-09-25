@@ -59,16 +59,18 @@ const Home = (props) => {
 
 
   return (
-    <section id="home-page" className="container">
-      <div className={heroBoxClassName}>
-        <SliderBox data={generalData.sliders} ref={slideImagesRef} />
-        <div className="text-box container">
-          <h2>{generalData.name}</h2>
-          <p>{generalData.description}</p>
-          <span>
-            <i className="icon_location-ff0505"></i>
-            {generalData.address}
-          </span>
+    <section id="home-page">
+      <div className="container">
+        <div className={heroBoxClassName}>
+          <SliderBox data={generalData.sliders} ref={slideImagesRef} />
+          <div className="text-box container">
+            <h2>{generalData.name}</h2>
+            <p>{generalData.description}</p>
+            <span>
+              <i className="icon_location-ff0505"></i>
+              {generalData.address}
+            </span>
+          </div>
         </div>
       </div>
 
