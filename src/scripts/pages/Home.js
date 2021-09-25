@@ -14,7 +14,7 @@ import BlogData from '../data/BlogData';
 const Home = (props) => {
   const [slideImagesRef, setSlideImagesRef] = useState([]);
   const [citizenData, setCitizenData]       = useState(['', '', '']);
-  const [blogData, setBlogData]             = useState(['', '', '']);
+  const [blogData, setBlogData]             = useState(['', '', '', '', '', '']);
   const [isLoading, setIsLoading]           = useState(true);
   const loadingClassName                    = isLoading ? 'box-loading' : '';
   const heroBoxClassName                    = StringHelper.join(' ', 'hero-box', loadingClassName);
