@@ -116,12 +116,12 @@
   padding-left: 4rem;
 }
 
+#blog-detail-page .text-box > hr,
 #blog-detail-page .text-box > ol,
 #blog-detail-page .text-box > ul,
 #blog-detail-page .text-box > p{
   margin-bottom: 2rem;
 }
-
 
 #blog-detail-page .text-box img{
   max-width: 100%;
@@ -129,6 +129,10 @@
   margin: 0 auto;
   display: block;
   object-fit: contain;
+}
+
+#blog-detail-page .text-box a:not([href]){
+  color: unset;
 }
 
 
