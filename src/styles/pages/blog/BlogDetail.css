@@ -111,9 +111,17 @@
 #blog-detail-page .text-box > h5{ font-size: calc(var(--large) * 1.2) }
 #blog-detail-page .text-box > h6{ font-size: calc(var(--large) * 1) }
 
+#blog-detail-page .text-box > ol,
+#blog-detail-page .text-box > ul{
+  padding-left: 4rem;
+}
+
+#blog-detail-page .text-box > ol,
+#blog-detail-page .text-box > ul,
 #blog-detail-page .text-box > p{
   margin-bottom: 2rem;
 }
+
 
 #blog-detail-page .text-box img{
   max-width: 100%;
