@@ -123,6 +123,16 @@
   margin-bottom: 2rem;
 }
 
+#blog-detail-page .text-box > blockquote{
+  padding:  1rem 1rem 1rem 2rem;
+  background-color: rgba(var(--main-color-rgb), .1);
+  border-left: .5rem solid var(--main-accent-color);
+}
+
+#blog-detail-page .text-box > blockquote > p{
+  margin: 1rem 0;
+}
+
 #blog-detail-page .text-box img{
   max-width: 100%;
   height: auto !important;
