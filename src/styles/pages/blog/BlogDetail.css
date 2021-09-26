@@ -167,4 +167,13 @@
     font-size: var(--x-large);
     line-height: .7;
   }
+
+  #blog-detail-page .title-box > .published,
+  #blog-detail-page .title-box > h2{
+    margin-bottom: 2rem;
+  }
+  
+  #blog-detail-page .title-box > .tags{
+    margin-bottom: 5rem;
+  }
 }
