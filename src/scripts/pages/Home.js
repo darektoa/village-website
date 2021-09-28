@@ -178,7 +178,7 @@ const CardStatistic = (props) => {
     <div className="statistic-card">
       <div className="badge">
         <h3>{total}</h3>
-        <span>Orang</span>
+        <small>Orang</small>
       </div>
 
       <div className="icon-box">
