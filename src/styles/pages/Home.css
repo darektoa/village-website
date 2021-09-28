@@ -178,8 +178,10 @@
   background-color: var(--main-color);
 }
 
-#home-page > .citizen-box > .citizen-statistics > .statistic-card > .icon-box > .icon_peoples-fff{
-  --icon-size: 2.4rem;
+#home-page > .citizen-box > .citizen-statistics > .statistic-card > .icon-box > i{
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
 }
 
 /* TEXT BOX */
