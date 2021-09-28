@@ -147,8 +147,8 @@
 }
 
 #home-page > .citizen-box > .citizen-statistics > .statistic-card > .badge{
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   padding-left: 1.4rem;
   display: flex;
   flex-direction: column;
